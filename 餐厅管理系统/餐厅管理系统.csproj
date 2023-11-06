@@ -139,9 +139,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="database\DishDb.cs" />
+    <Compile Include="database\RestaurantDb.cs" />
     <Compile Include="database\UserDb.cs" />
+    <Compile Include="data\Dish.cs" />
     <Compile Include="data\Restaurant.cs" />
     <Compile Include="data\User.cs" />
+    <Compile Include="Migrations\DishDbMigrations\20231106102124_dish.cs" />
+    <Compile Include="Migrations\DishDbMigrations\20231106102124_dish.designer.cs">
+      <DependentUpon>20231106102124_dish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DishDbMigrations\DishDbModelSnapshot.cs" />
+    <Compile Include="winForm\Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\RestaurantDbMigrations\20231106095656_Res.cs" />
+    <Compile Include="Migrations\RestaurantDbMigrations\20231106095656_Res.designer.cs">
+      <DependentUpon>20231106095656_Res.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\RestaurantDbMigrations\RestaurantDbModelSnapshot.cs" />
+    <Compile Include="Migrations\ReviewDbMigrations\20231106095152_Review.cs" />
+    <Compile Include="Migrations\ReviewDbMigrations\20231106095152_Review.designer.cs">
+      <DependentUpon>20231106095152_Review.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ReviewDbMigrations\ReviewDbModelSnapshot.cs" />
     <Compile Include="winForm\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,11 +189,6 @@
     <Compile Include="winForm\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20231101040821_init.cs" />
-    <Compile Include="Migrations\20231101040821_init.designer.cs">
-      <DependentUpon>20231101040821_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ReviewDbModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="data\Review.cs" />
@@ -188,6 +207,9 @@
     </Compile>
     <EmbeddedResource Include="winForm\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -2,12 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using 餐厅管理系统;
+using 餐厅管理系统.database;
 
 namespace 餐厅管理系统.Migrations
 {
-    [DbContext(typeof(ReviewDb))]
-    partial class ReviewDbModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DishDb))]
+    partial class DishDbModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -16,27 +16,27 @@ namespace 餐厅管理系统.Migrations
                 .HasAnnotation("ProductVersion", "3.1.32")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("餐厅管理系统.Review", b =>
+            modelBuilder.Entity("餐厅管理系统.data.Dish", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DishId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Comment")
+                    b.Property<string>("DisPicture")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.HasKey("DishId");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Reviews");
+                    b.ToTable("Dishes");
                 });
 #pragma warning restore 612, 618
         }

@@ -130,3 +130,4 @@ C:\Users\86135\Desktop\c#大作业\餐厅管理系统\obj\Debug\餐厅管理系�
 C:\Users\86135\Desktop\c#大作业\餐厅管理系统\obj\Debug\餐厅管理系统.exe
 C:\Users\86135\Desktop\c#大作业\餐厅管理系统\obj\Debug\餐厅管理系统.pdb
 C:\Users\86135\Desktop\c#大作业\餐厅管理系统\obj\Debug\餐厅管理系统.Form2.resources
+C:\Users\86135\Desktop\c#大作业\餐厅管理系统\obj\Debug\餐厅管理系统.Form4.resources

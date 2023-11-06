@@ -38,14 +38,11 @@ namespace 餐厅管理系统
             SaveChanges();
         }
 
-        public void DeleteUser(int UserID)  //仅管理员能使用，删除相应的账号
+        public void DeleteUser(User UserID)  //仅管理员能使用，删除相应的账号
         {
-            var UserToDelete = Users.Find(UserID);
-            if (UserToDelete != null)
-            {
-                Users.Remove(UserToDelete);
+                Users.Remove(UserID);
                 SaveChanges();
-            }
+           
 
 
         }

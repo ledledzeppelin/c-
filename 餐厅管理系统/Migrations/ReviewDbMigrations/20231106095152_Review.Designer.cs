@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using 餐厅管理系统;
 
-namespace 餐厅管理系统.Migrations
+namespace 餐厅管理系统.Migrations.ReviewDbMigrations
 {
     [DbContext(typeof(ReviewDb))]
-    [Migration("20231101040821_init")]
-    partial class init
+    [Migration("20231106095152_Review")]
+    partial class Review
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace 餐厅管理系统.Migrations
 
             modelBuilder.Entity("餐厅管理系统.Review", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ReviewId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -36,7 +36,7 @@ namespace 餐厅管理系统.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.HasKey("Id");
+                    b.HasKey("ReviewId");
 
                     b.ToTable("Reviews");
                 });

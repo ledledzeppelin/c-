@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace 餐厅管理系统.Migrations
+namespace 餐厅管理系统.Migrations.ReviewDbMigrations
 {
-    public partial class init : Migration
+    public partial class Review : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace 餐厅管理系统.Migrations
                 name: "Reviews",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ReviewId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     RestaurantId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true),
@@ -20,7 +20,7 @@ namespace 餐厅管理系统.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reviews", x => x.Id);
+                    table.PrimaryKey("PK_Reviews", x => x.ReviewId);
                 });
         }
 

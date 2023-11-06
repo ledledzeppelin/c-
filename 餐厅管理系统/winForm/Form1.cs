@@ -72,6 +72,15 @@ namespace 餐厅管理系统
 
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            if (textBox5.Text == "2021302111") ;
+            this.Hide();
+            Form4 form4 = new Form4();   //调用带参的构造函数
+            form4.Show();
+        }
+
         /*private void button2_click(object sender, EventArgs e)
         {
 
