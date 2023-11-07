@@ -1,11 +1,19 @@
 Data文件夹：数据层
     User：set和get函数
-          ProfilePicture参数为用户头像文件名，存储在bin/debug/UserImages/路径中
+                ProfilePicture参数为用户头像文件名，存储在bin/debug/UserImages/路径中
     Review：set和get函数
     Restaurant：set和get函数
+    Dish：
 Database文件夹：数据库管理层
     UserDb：
-         AddUser(User newuser)：用于增添用户，在注册时使用，参数为类
-         UpdateUser(User updatedUser)：更新用户资料时使用，参数为类
-         DeleteUser(int UserID)：删除用户时使用，需输入用户id，参数User的对象UserID
+               AddUser(User newuser)：用于增添用户，在注册时使用，参数为类
+               UpdateUser(User updatedUser)：更新用户资料时使用，参数为类
+               DeleteUser(int UserID)：删除用户时使用，需输入用户id，参数User的对象UserID
+     ReviewDb：
+     RestaurantDb：
+     DishDb：
 Form文件夹：窗口文件夹
+     Form1：登录界面
+     Form2:注册界面
+     Form3：应用程序界面
+     Form4：管理员界面

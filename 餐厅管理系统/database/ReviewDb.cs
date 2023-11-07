@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+using 餐厅管理系统.database;
 
 namespace 餐厅管理系统
 {
@@ -33,12 +34,16 @@ namespace 餐厅管理系统
             SaveChanges();
         }
 
-        public void DeleteUser(Review eReviews)  //仅管理员能使用，删除相应的账号
+        public void DeleteUser(int dishid)  //仅管理员能使用，删除相应的账号
         {
 
-            Reviews.Remove(eReviews);
+            var studentToDelete = Reviews.Find(dishid);
+            if (studentToDelete != null)
+            {
+                Reviews.Remove(studentToDelete);
                 SaveChanges();
-         
+
+            }
         }
     }
 }

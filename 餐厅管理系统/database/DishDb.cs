@@ -30,12 +30,16 @@ namespace 餐厅管理系统.database
             SaveChanges();
         }
 
-        public void DeleteUser(Dish eReviews)  //仅管理员能使用，删除相应的账号
+        public void DeleteUser(int dishid)  //仅管理员能使用，删除相应的账号
         {
 
-            Dishes.Remove(eReviews);
-            SaveChanges();
+            var studentToDelete = Dishes.Find(dishid);
+            if (studentToDelete != null)
+            {
+                Dishes.Remove(studentToDelete);
+                SaveChanges();
 
+            }
         }
     }
 }

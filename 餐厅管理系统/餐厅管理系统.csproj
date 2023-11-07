@@ -145,6 +145,18 @@
     <Compile Include="data\Dish.cs" />
     <Compile Include="data\Restaurant.cs" />
     <Compile Include="data\User.cs" />
+    <Compile Include="winForm\Form6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\Form6.Designer.cs">
+      <DependentUpon>Form6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="winForm\Form5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DishDbMigrations\20231106102124_dish.cs" />
     <Compile Include="Migrations\DishDbMigrations\20231106102124_dish.designer.cs">
       <DependentUpon>20231106102124_dish.cs</DependentUpon>
@@ -207,6 +219,9 @@
     </Compile>
     <EmbeddedResource Include="winForm\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
