@@ -11,39 +11,42 @@ namespace 餐厅管理系统
 {
     internal class ReviewDb : DbContext
     {
-
-
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // 使用 MySQL 数据库提供程序和连接字符串
-            optionsBuilder.UseMySql("Server=localhost;Database=classes;User Id=root;Password=hf20030819;");
+            // 配置数据库连接，使用 MySQL 数据库提供程序和连接字符串
+            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=hf20030819;");
         }
+
         public DbSet<Review> Reviews { get; set; }
 
-        public void AddUser(Review newReviews)    //增添用户：可以不上传用户头像，注册按钮使用
+       
+        /// 增添用户评价
+        public void AddReview(Review newReview)
         {
-            
-            Reviews.Add(newReviews);
+            // 将新用户评价对象添加到数据库集合
+            Reviews.Add(newReview);
+
+            // 保存更改到数据库
             SaveChanges();
         }
 
-        public void UpdateUser(Review updatedReviews)  //每次用户修改数据时使用，如修改密码，修改昵称
-        {
-            Reviews.Update(updatedReviews);
-            SaveChanges();
-        }
+  
 
-        public void DeleteUser(int dishid)  //仅管理员能使用，删除相应的账号
+        
+        public void DeleteReview(int reviewId)
         {
+            // 查找要删除的用户评价
+            var reviewToDelete = Reviews.Find(reviewId);
 
-            var studentToDelete = Reviews.Find(dishid);
-            if (studentToDelete != null)
+            if (reviewToDelete != null)
             {
-                Reviews.Remove(studentToDelete);
-                SaveChanges();
+                // 从数据库集合中移除用户评价
+                Reviews.Remove(reviewToDelete);
 
+                // 保存更改到数据库
+                SaveChanges();
             }
         }
     }
+
 }

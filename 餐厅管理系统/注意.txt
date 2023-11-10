@@ -1,6 +1,16 @@
 要使用数据库，修改数据库操作层（DataBase文件夹）中每个类的OnConfiguring函数，更改其中的数据库连接变为你的数据库
 然后包管理控制台运行  
-（Add-Migrations -Context 数据库的类  这个指令会生成“生成数据库”的代码）                        
+Add-Migration -Context 数据库的类  这个指令会生成“生成数据库”的代码）                        
  Update-Database -Context 数据库的类
 命令会应用迁移并创建数据库。
 在vs最上方     帮助   旁有个搜索，搜程序包管理控制台就行了
+
+管理员密码：2021302111
+
+FormResEdit可能会有个小bug：外键问题看，可以调试一下
+
+sln同界面有文件夹image，里面有三个子文件夹：
+userimage等：存储用户相关图片
+
+更多问题请咨询chagpt或者csdn：如看不懂密码，不懂包或者控件如何使用，或者报错了有详细的报错信息
+chatgpt会给你最详细的解答

@@ -11,33 +11,37 @@ namespace 餐厅管理系统.database
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // 使用 MySQL 数据库提供程序和连接字符串
-            optionsBuilder.UseMySql("Server=localhost;Database=classes;User Id=root;Password=hf20030819;");
+            // 配置数据库连接，使用 MySQL 数据库提供程序和连接字符串
+            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=hf20030819;");
         }
+
         public DbSet<Restaurant> Restaurants { get; set; }
 
-        public void AddUser(Restaurant newReviews)    //增添用户：可以不上传用户头像，注册按钮使用
+        
+        /// 添加餐厅
+       
+        public void AddRestaurant(Restaurant newRestaurant)
         {
+            // 将新餐厅对象添加到数据库集合
+            Restaurants.Add(newRestaurant);
 
-            Restaurants.Add(newReviews);
+            // 保存更改到数据库
             SaveChanges();
         }
 
-        public void UpdateUser(Restaurant updatedReviews)  //每次用户修改数据时使用，如修改密码，修改昵称
+       
+        public void DeleteRestaurant(int restaurantId)
         {
-            Restaurants.Update(updatedReviews);
-            SaveChanges();
-        }
+            // 查找要删除的餐厅
+            var restaurantToDelete = Restaurants.Find(restaurantId);
 
-        public void DeleteUser(int dishid)  //仅管理员能使用，删除相应的账号
-        {
-
-            var studentToDelete = Restaurants.Find(dishid);
-            if (studentToDelete != null)
+            if (restaurantToDelete != null)
             {
-                Restaurants.Remove(studentToDelete);
-                SaveChanges();
+                // 从数据库集合中移除餐厅
+                Restaurants.Remove(restaurantToDelete);
 
+                // 保存更改到数据库
+                SaveChanges();
             }
         }
     }

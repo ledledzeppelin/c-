@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using 餐厅管理系统.database;
 
-namespace 餐厅管理系统.Migrations
+namespace 餐厅管理系统.Migrations.DishDbMigrations
 {
     [DbContext(typeof(DishDb))]
     partial class DishDbModelSnapshot : ModelSnapshot
@@ -30,9 +30,6 @@ namespace 餐厅管理系统.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(65,30)");
-
-                    b.Property<int>("RestaurantId")
-                        .HasColumnType("int");
 
                     b.HasKey("DishId");
 

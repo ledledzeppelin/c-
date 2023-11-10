@@ -10,36 +10,45 @@ namespace 餐厅管理系统.database
 {
     internal class DishDb:DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // 使用 MySQL 数据库提供程序和连接字符串
-            optionsBuilder.UseMySql("Server=localhost;Database=classes;User Id=root;Password=hf20030819;");
-        }
-        public DbSet<Dish> Dishes { get; set; }
-
-        public void AddUser(Dish newReviews)    //增添用户：可以不上传用户头像，注册按钮使用
-        {
-
-            Dishes.Add(newReviews);
-            SaveChanges();
-        }
-
-        public void UpdateUser(Dish updatedReviews)  //每次用户修改数据时使用，如修改密码，修改昵称
-        {
-            Dishes.Update(updatedReviews);
-            SaveChanges();
-        }
-
-        public void DeleteUser(int dishid)  //仅管理员能使用，删除相应的账号
-        {
-
-            var studentToDelete = Dishes.Find(dishid);
-            if (studentToDelete != null)
+        
+            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
-                Dishes.Remove(studentToDelete);
-                SaveChanges();
-
+                // 配置数据库连接，使用 MySQL 数据库提供程序和连接字符串
+                optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=hf20030819;");
             }
-        }
+
+            public DbSet<Dish> Dishes { get; set; }
+
+           
+            
+            public void AddDish(Dish newDish)
+            {
+                // 将新菜品对象添加到数据库集合
+                Dishes.Add(newDish);
+
+                // 保存更改到数据库
+                SaveChanges();
+            }
+
+
+            ///删除相应的菜品
+            
+            public void DeleteDish(int dishId)
+
+            {
+                // 查找要删除的菜品
+                var dishToDelete = Dishes.Find(dishId);
+
+                if (dishToDelete != null)
+                {
+                    // 从数据库集合中移除菜品
+                    Dishes.Remove(dishToDelete);
+
+                    // 保存更改到数据库
+                    SaveChanges();
+                }
+            }
+        
+
     }
 }

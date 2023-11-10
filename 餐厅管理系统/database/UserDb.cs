@@ -17,7 +17,7 @@ namespace 餐厅管理系统
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 使用 MySQL 数据库提供程序和连接字符串
-            optionsBuilder.UseMySql("Server=localhost;Database=classes;User Id=root;Password=hf20030819;");
+            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=hf20030819;");
         }
         public DbSet<User> Users { get; set; }
 
@@ -32,11 +32,7 @@ namespace 餐厅管理系统
             SaveChanges();
         }
 
-        public void UpdateUser(User updatedUser)  //每次用户修改数据时使用，如修改密码，修改昵称
-        {
-            Users.Update(updatedUser);
-            SaveChanges();
-        }
+     
 
         public void DeleteUser(int dishid)  //仅管理员能使用，删除相应的账号
         {
