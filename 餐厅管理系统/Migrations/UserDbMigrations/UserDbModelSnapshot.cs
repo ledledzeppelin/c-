@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using 餐厅管理系统;
 
-namespace 餐厅管理系统.Migrations
+namespace 餐厅管理系统.Migrations.UserDbMigrations
 {
     [DbContext(typeof(UserDb))]
     partial class UserDbModelSnapshot : ModelSnapshot

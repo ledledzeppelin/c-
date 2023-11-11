@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using 餐厅管理系统.data;
-using 餐厅管理系统.database;
-using 餐厅管理系统.Migrations.DishDbMigrations;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using 餐厅管理系统.database;
+using 餐厅管理系统.data;
 
 namespace 餐厅管理系统
 {
+    
     internal partial class FormResEdit : Form
     {
         // 餐厅对象
@@ -24,7 +24,6 @@ namespace 餐厅管理系统
         {
             InitializeComponent();
             this.res = res;
-            dataGridViewload(res.Menu);
         }
 
         private void FormResEdit_Load(object sender, EventArgs e)
@@ -85,17 +84,17 @@ namespace 餐厅管理系统
         // 保存按钮点击事件，用于保存菜品信息到数据库
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
                 // 获取当前应用程序的上级目录，用于保存图片
                 DirectoryInfo pname = new DirectoryInfo(Application.StartupPath);
                 string filename = pname.Parent.Parent.FullName;
-            try
-            {
+
                 // 如果上传了图片
                 if (isUpLoadPicture)
                 {
                     // 设置菜品图片的名字:以餐厅名+菜品名+后缀名
-                    string dishImageName = res.Name + textBox2.Text + "." + empUpLoadPictureFormat;
+                    string dishImageName = res.Name + textBox2.Text + empUpLoadPictureFormat;
 
                     // 将上传的图片复制到指定目录
                     File.Copy(openFileDialog1.FileName, filename + "\\image\\dishimage\\" + dishImageName);
@@ -114,11 +113,13 @@ namespace 餐厅管理系统
                     restaurantDb.Update(restaurantupdate);
 
                     // 如果菜单为空，初始化菜单列表
-                  
+                    if (restaurantupdate.Menu == null)
+                    {
+                        restaurantupdate.Menu = new List<Dish>();
+                    }
 
                     // 添加菜品到菜单
                     restaurantupdate.Menu.Add(dish);
-                    
                     restaurantDb.SaveChanges();
 
                     // 显示菜品上传成功消息
@@ -147,6 +148,16 @@ namespace 餐厅管理系统
         {
             // 单元格内容点击事件（可留空）
         }
-    }
 
+        private void FormResEdit_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+    
 }

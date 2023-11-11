@@ -19,8 +19,10 @@ namespace 餐厅管理系统
 
         public DbSet<Review> Reviews { get; set; }
 
-       
-        /// 增添用户评价
+        /// <summary>
+        /// 增添用户评价：可以不上传用户头像，适用于注册按钮
+        /// </summary>
+        /// <param name="newReview">要添加的用户评价对象</param>
         public void AddReview(Review newReview)
         {
             // 将新用户评价对象添加到数据库集合
@@ -30,9 +32,10 @@ namespace 餐厅管理系统
             SaveChanges();
         }
 
-  
-
-        
+    
+        /// 仅管理员能使用，删除相应的用户评价
+        /// </summary>
+        /// <param name="reviewId">要删除的用户评价的ID</param>
         public void DeleteReview(int reviewId)
         {
             // 查找要删除的用户评价

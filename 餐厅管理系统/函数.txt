@@ -1,17 +1,23 @@
 Data文件夹：数据层
     User：
-    Review：set和get函数
-    Restaurant：set和get函数
+    Review：
+    Restaurant：
     Dish：
 Database文件夹：数据库管理层
     UserDb：
      ReviewDb：
      RestaurantDb：
      DishDb：
+     Apply：待审核商家
 Form文件夹：窗口文件夹
-     FormLogin：登录界面
-     FormUseRegister:注册界面
-     FormResRegister：应用程序界面
-     FormResEdit：餐厅管理界面：添加菜单
+     FormLogin：用户和商家登录界面
+     FormUseRegister:用户注册界面
+     FormResRegister：商家注册界面
+     FormResEdit：商家管理界面
      FormAdministrator：管理员界面
-Migrations：建立的迁移文件夹
+待完成：
+     主界面
+      商家下单和用户评论评论界面
+Migrations：迁移文件夹
+     
+     

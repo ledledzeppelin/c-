@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using 餐厅管理系统.database;
 
-namespace 餐厅管理系统.Migrations.ApplyDbMigrations
+namespace 餐厅管理系统.Migrations
 {
     [DbContext(typeof(ApplyDb))]
     partial class ApplyDbModelSnapshot : ModelSnapshot
@@ -23,6 +23,9 @@ namespace 餐厅管理系统.Migrations.ApplyDbMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Account")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("Address")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -38,12 +41,9 @@ namespace 餐厅管理系统.Migrations.ApplyDbMigrations
                     b.Property<string>("ResPicture")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("account")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.HasKey("RestaurantId");
 
-                    b.ToTable("Resapplys");
+                    b.ToTable("ResApplys");
                 });
 
             modelBuilder.Entity("餐厅管理系统.Review", b =>

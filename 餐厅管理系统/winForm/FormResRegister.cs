@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 餐厅管理系统.data;
 using 餐厅管理系统.database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace 餐厅管理系统
 {
+    
     public partial class FormResRegister : Form
     {
         // 标记是否上传图片
@@ -38,10 +39,47 @@ namespace 餐厅管理系统
             // 在窗体加载时执行的代码（可留空）
         }
 
-     
+        // 保存按钮点击事件，用于保存餐厅信息到数据库
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 获取当前应用程序的上级目录，用于保存图片
+                DirectoryInfo pname = new DirectoryInfo(Application.StartupPath);
+                string filename = pname.Parent.Parent.FullName;
+
+                // 如果上传了图片
+                if (isUpLoadPicture)
+                {
+                    // 设置餐厅图片的名字:以系统当前时间毫秒来命名
+                    string resImageName = textBox1.Text + "商家图片." + empUpLoadPictureFormat;
+
+                    // 将上传的图片复制到指定目录
+                    File.Copy(openFileDialog1.FileName, filename + "\\image\\restaurantimage\\" + resImageName);
+
+                    // 创建餐厅对象并设置属性
+                    Restaurant restaurant = new Restaurant();
+                    restaurant.Name = textBox1.Text;
+                    restaurant.Account = textBox2.Text;
+                    restaurant.Password = textBox3.Text;
+                    restaurant.Address = textBox4.Text;
+                    restaurant.ResPicture = resImageName;
+
+                    // 将餐厅信息添加到数据库
+                    db.AddResApply(restaurant);
+
+                    // 显示申请已提交消息
+                    MessageBox.Show("申请已提交，请耐心等待");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"保存餐厅信息时发生错误: {ex.Message}");
+            }
+        }
 
         // 上传图片按钮点击事件
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -58,7 +96,7 @@ namespace 餐厅管理系统
                         uploadpicture = openFileDialog1.FileName; // 图片的物理路径
                         String[] empImageData = uploadpicture.Split('.'); // 获取文件类型
                         empUpLoadPictureFormat = empImageData[1]; // 上传的图片的后缀名
-                        pictureBox2.Image = Image.FromFile(uploadpicture); // 将图片显示在 PictureBox 控件中
+                        pictureBox1.Image = Image.FromFile(uploadpicture); // 将图片显示在 PictureBox 控件中
                     }
                     catch
                     {
@@ -72,44 +110,9 @@ namespace 餐厅管理系统
             }
         }
 
-
-        // 保存按钮点击事件，用于保存餐厅信息到数据库
-        private void button2_Click(object sender, EventArgs e)
+        private void FormResRegister_Load_1(object sender, EventArgs e)
         {
-            try
-            {
-                // 获取当前应用程序的上级目录，用于保存图片
-                DirectoryInfo pname = new DirectoryInfo(Application.StartupPath);
-                string filename = pname.Parent.Parent.FullName;
-
-                // 如果上传了图片
-                if (isUpLoadPicture)
-                {
-                    // 设置餐厅图片的名字
-                    string resImageName = textBox1.Text + "商家图片." + empUpLoadPictureFormat;
-
-                    // 将上传的图片复制到指定目录
-                    File.Copy(openFileDialog1.FileName, filename + "\\image\\restaurantimage\\" + resImageName);
-
-                    // 创建餐厅对象并设置属性
-                    Restaurant restaurant = new Restaurant();
-                    restaurant.Name = textBox1.Text;
-                    restaurant.account = textBox4.Text;
-                    restaurant.Password = textBox2.Text;
-                    restaurant.Address = textBox3.Text;
-                    restaurant.ResPicture = resImageName;
-
-                    // 将餐厅信息添加到数据库
-                    db.AddResapply(restaurant);
-
-                    // 显示申请已提交消息
-                    MessageBox.Show("申请已提交，请耐心等待");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"保存餐厅信息时发生错误: {ex.Message}");
-            }
+            // 在窗体加载时执行的代码（可留空）
         }
 
         // 返回登录界面按钮点击事件
@@ -121,10 +124,10 @@ namespace 餐厅管理系统
             form.Show();
         }
 
-        private void FormResRegister_Load_1(object sender, EventArgs e)
+        private void FormResRegister_Load_2(object sender, EventArgs e)
         {
 
         }
     }
-
+    
 }

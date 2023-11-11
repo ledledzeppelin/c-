@@ -146,31 +146,37 @@
     <Compile Include="data\Dish.cs" />
     <Compile Include="data\Restaurant.cs" />
     <Compile Include="data\User.cs" />
-    <Compile Include="Migrations\ApplyDbMigrations\20231110082640_apply.cs" />
-    <Compile Include="Migrations\ApplyDbMigrations\20231110082640_apply.designer.cs">
-      <DependentUpon>20231110082640_apply.cs</DependentUpon>
+    <Compile Include="Migrations\ApplyDbMigrations\20231110164827_1.cs" />
+    <Compile Include="Migrations\ApplyDbMigrations\20231110164827_1.designer.cs">
+      <DependentUpon>20231110164827_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ApplyDbMigrations\ApplyDbModelSnapshot.cs" />
-    <Compile Include="Migrations\RestaurantDbMigrations\20231110082621_resss.cs" />
-    <Compile Include="Migrations\RestaurantDbMigrations\20231110082621_resss.designer.cs">
-      <DependentUpon>20231110082621_resss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\RestaurantDbMigrations\RestaurantDbModelSnapshot.cs" />
-    <Compile Include="Migrations\UserDbMigrations\20231110070752_newss.cs" />
-    <Compile Include="Migrations\UserDbMigrations\20231110070752_newss.designer.cs">
-      <DependentUpon>20231110070752_newss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\DishDbMigrations\20231110070822_dish.cs" />
-    <Compile Include="Migrations\DishDbMigrations\20231110070822_dish.designer.cs">
-      <DependentUpon>20231110070822_dish.cs</DependentUpon>
+    <Compile Include="Migrations\DishDbMigrations\20231110165356_2.cs" />
+    <Compile Include="Migrations\DishDbMigrations\20231110165356_2.designer.cs">
+      <DependentUpon>20231110165356_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DishDbMigrations\DishDbModelSnapshot.cs" />
-    <Compile Include="Migrations\ReviewDbMigrations\20231110070850_review.cs" />
-    <Compile Include="Migrations\ReviewDbMigrations\20231110070850_review.designer.cs">
-      <DependentUpon>20231110070850_review.cs</DependentUpon>
+    <Compile Include="Migrations\RestaurantDbMigrations\20231110165243_3.cs" />
+    <Compile Include="Migrations\RestaurantDbMigrations\20231110165243_3.designer.cs">
+      <DependentUpon>20231110165243_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\RestaurantDbMigrations\RestaurantDbModelSnapshot.cs" />
+    <Compile Include="Migrations\ReviewDbMigrations\20231110165202_4.cs" />
+    <Compile Include="Migrations\ReviewDbMigrations\20231110165202_4.designer.cs">
+      <DependentUpon>20231110165202_4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ReviewDbMigrations\ReviewDbModelSnapshot.cs" />
+    <Compile Include="Migrations\UserDbMigrations\20231110165141_5.cs" />
+    <Compile Include="Migrations\UserDbMigrations\20231110165141_5.designer.cs">
+      <DependentUpon>20231110165141_5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\UserDbMigrations\UserDbModelSnapshot.cs" />
+    <Compile Include="winForm\Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
     <Compile Include="winForm\FormResEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,20 +186,8 @@
     <Compile Include="winForm\FormResRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="winForm\FormResRegister.Designer.cs">
+    <Compile Include="winForm\Form商家.Designer.cs">
       <DependentUpon>FormResRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="winForm\Form6.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="winForm\Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="winForm\Form5.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="winForm\Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
     <Compile Include="winForm\FormAdministrator.cs">
       <SubType>Form</SubType>
@@ -201,11 +195,11 @@
     <Compile Include="winForm\FormAdministrator.Designer.cs">
       <DependentUpon>FormAdministrator.cs</DependentUpon>
     </Compile>
-    <Compile Include="winForm\Form3.cs">
+    <Compile Include="winForm\Form搜索.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="winForm\Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="winForm\Form搜索.Designer.cs">
+      <DependentUpon>Form搜索.cs</DependentUpon>
     </Compile>
     <Compile Include="winForm\FormUseRegister.cs">
       <SubType>Form</SubType>
@@ -223,6 +217,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="data\Review.cs" />
     <Compile Include="database\ReviewDb.cs" />
+    <EmbeddedResource Include="winForm\Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormResEdit.resx">
+      <DependentUpon>FormResEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormResRegister.resx">
+      <DependentUpon>FormResRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,20 +238,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="winForm\FormResEdit.resx">
-      <DependentUpon>FormResEdit.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormUseRegister.resx">
       <DependentUpon>FormUseRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="winForm\Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="winForm\Form搜索.resx">
+      <DependentUpon>Form搜索.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormAdministrator.resx">
       <DependentUpon>FormAdministrator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="winForm\FormResRegister.resx">
-      <DependentUpon>FormResRegister.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -264,7 +261,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

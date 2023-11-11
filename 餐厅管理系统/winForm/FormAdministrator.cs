@@ -11,44 +11,36 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using 餐厅管理系统.data;
 using 餐厅管理系统.database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace 餐厅管理系统
 {
-   
+    
     public partial class FormAdministrator : Form
     {
         public FormAdministrator()
         {
             InitializeComponent();
-            //初始化数据库
+            // 初始化数据库
 
+            // 设置 DataGridView 的选择模式
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-
         }
 
-        
-
-        
+        // ...
+        ApplyDb applyDb = new ApplyDb();
         RestaurantDb restaurantDb = new RestaurantDb();
         ReviewDb reviewDb = new ReviewDb();
         UserDb userDb = new UserDb();
-        ApplyDb ApplyDb = new ApplyDb();
-
-        private void dataGridViewload<T>(List<T> itemList)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = itemList;
-
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)   //下拉选项框，用于显示数据表
-        {
+            // 下拉选项框，用于显示数据表
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
-                    //已提交待审核的餐厅申请
-                    var apply = ApplyDb.Resapplys.ToList(); ;   
+                    // 已提交待审核的餐厅申请
+                    var apply = applyDb.ResApplys.ToList();
                     dataGridViewload(apply);
                     button1.Visible = true;
                     break;
@@ -73,67 +65,118 @@ namespace 餐厅管理系统
             }
         }
 
+        
+            private void dataGridViewload<T>(List<T> itemList)
+            {
+                dataGridView1.DataSource = itemList;
+            }
+        
 
-        //删除申请并添加餐厅，完成对餐厅的审核
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex==0)
+            try
             {
-               
-                var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;  //获取对象，selectDish即为对象
-                int id = selectedDish.RestaurantId;
-                ApplyDb.DeleteResapply(id);
-                restaurantDb.AddRestaurant(selectedDish);
-            }
-        }
-
-
-
-
-
-        private void button2_Click(object sender, EventArgs e)   //删除按钮，用于删除已选选项
-        {
-            switch (comboBox1.SelectedIndex)
-            {
-                case 0:
+                if (comboBox1.SelectedIndex == 0)
+                {
                     if (dataGridView1.SelectedRows.Count > 0)
                     {
-                        var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;  //获取对象，selectDish即为对象
-                        int id = selectedDish.RestaurantId;
-                        ApplyDb.DeleteResapply(id);  //删除对象
-                    }
-                    else { MessageBox.Show("请选择相应的菜"); }
-                    break;
-                case 1:
-                    if (dataGridView1.SelectedRows.Count > 0)
-                    {
+                        // 获取选定的餐厅申请
                         var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
-                        int id = selectedDish.RestaurantId;
-                        restaurantDb.DeleteRestaurant(id);
-                    }
-                    else { MessageBox.Show("请选择相应的菜"); }
-                    break;
-                case 2:
-                    if (dataGridView1.SelectedRows.Count > 0)
-                    {
-                        var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Review;
-                        int id = selectedDish.ReviewId;
-                        reviewDb.DeleteReview(id);
+                        if (selectedDish != null)
+                        {
+                            int id = selectedDish.RestaurantId;
+                            // 删除申请并添加餐厅
+                            applyDb.DeleteResApply(id);
+                            restaurantDb.AddRestaurant(selectedDish);
+                        }
                     }
                     else
                     {
                         MessageBox.Show("请选择相应的菜");
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"处理请求时出错: {ex.Message}");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (comboBox1.SelectedIndex)
+                {
+                    case 0:
+                        // 删除餐厅申请
+                        if (dataGridView1.SelectedRows.Count > 0)
+                        {
+                            var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
+                            if (selectedDish != null)
+                            {
+                                int id = selectedDish.RestaurantId;
+                                applyDb.DeleteResApply(id);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择相应的菜");
+                        }
                         break;
-                case 3:
-                    if (dataGridView1.SelectedRows.Count > 0)
-                    {
-                        var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as User;
-                        int id = selectedDish.Id;
-                        userDb.DeleteUser(id);
-                    }
-                    else { MessageBox.Show("请选择相应的菜"); }
-                    break;
+                    case 1:
+                        // 删除餐厅
+                        if (dataGridView1.SelectedRows.Count > 0)
+                        {
+                            var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
+                            if (selectedDish != null)
+                            {
+                                int id = selectedDish.RestaurantId;
+                                restaurantDb.DeleteRestaurant(id);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择相应的菜");
+                        }
+                        break;
+                    case 2:
+                        // 删除评论
+                        if (dataGridView1.SelectedRows.Count > 0)
+                        {
+                            var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Review;
+                            if (selectedDish != null)
+                            {
+                                int id = selectedDish.ReviewId;
+                                reviewDb.DeleteReview(id);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择相应的菜");
+                        }
+                        break;
+                    case 3:
+                        // 删除用户
+                        if (dataGridView1.SelectedRows.Count > 0)
+                        {
+                            var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as User;
+                            if (selectedDish != null)
+                            {
+                                int id = selectedDish.Id;
+                                userDb.DeleteUser(id);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择相应的菜");
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"处理请求时出错: {ex.Message}");
             }
         }
 
@@ -141,9 +184,6 @@ namespace 餐厅管理系统
         {
 
         }
-
-        
     }
-
     
 }

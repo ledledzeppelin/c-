@@ -122,16 +122,16 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "用户登录",
-            "商家登录"});
-            this.comboBox1.Location = new System.Drawing.Point(77, 41);
+            "用户",
+            "餐厅"});
+            this.comboBox1.Location = new System.Drawing.Point(91, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 9;
             // 
             // FormLogin
             // 
-            this.ClientSize = new System.Drawing.Size(1018, 481);
+            this.ClientSize = new System.Drawing.Size(1049, 481);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label5);

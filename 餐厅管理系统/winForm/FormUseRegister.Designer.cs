@@ -56,7 +56,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(242, 25);
             this.textBox2.TabIndex = 1;
-         
             // 
             // textBox3
             // 
@@ -80,7 +79,6 @@
             this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "昵称";
-            
             // 
             // label2
             // 
@@ -174,7 +172,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form2";
             this.Text = "Form2";
-           
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

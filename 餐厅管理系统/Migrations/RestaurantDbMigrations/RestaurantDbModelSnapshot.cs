@@ -23,6 +23,9 @@ namespace 餐厅管理系统.Migrations.RestaurantDbMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Account")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("Address")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -36,9 +39,6 @@ namespace 餐厅管理系统.Migrations.RestaurantDbMigrations
                         .HasColumnType("float");
 
                     b.Property<string>("ResPicture")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("account")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("RestaurantId");

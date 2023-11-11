@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace 餐厅管理系统
 {
@@ -17,7 +19,10 @@ namespace 餐厅管理系统
             InitializeComponent();
         }
 
-       
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            // 在窗体加载时执行的代码（可留空）
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -41,8 +46,7 @@ namespace 餐厅管理系统
                     {
                         // 设置用户对象的密码
                         newuser.Password = textBox3.Text;
-
-                        newuser.Location = textBox5.Text;
+                        newuser.Location=textBox5.Text;
 
                         // 创建 UserDb 对象用于数据库操作
                         UserDb udb = new UserDb();
@@ -56,7 +60,7 @@ namespace 餐厅管理系统
                     else
                     {
                         // 显示密码与确认密码不一致的错误消息
-                        MessageBox.Show("密码与确认密码不一致") ;
+                        MessageBox.Show( "密码与确认密码不一致");
                     }
                 }
                 else
@@ -80,7 +84,15 @@ namespace 餐厅管理系统
             form.Show();
         }
 
-       
+        private void label1_Click(object sender, EventArgs e)
+        {
+            // 单击标签时执行的代码（可留空）
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            // 文本框内容更改时执行的代码（可留空）
+        }
     }
 
 }
