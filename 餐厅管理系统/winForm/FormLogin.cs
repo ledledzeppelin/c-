@@ -26,15 +26,17 @@ namespace 餐厅管理系统
             {
                 if (comboBox1.SelectedIndex == 0)
                 {
-                    this.Hide();
                     FormUseRegister myform = new FormUseRegister();   // 调用带参的构造函数
-                    myform.Show();
+                    this.Hide();
+                    myform.ShowDialog();
+                    this.Dispose();
                 }
                 else
                 {
-                    this.Hide();
                     FormResRegister myform = new FormResRegister();   // 调用带参的构造函数
-                    myform.Show();
+                    this.Hide();
+                    myform.ShowDialog();
+                    this.Dispose();
                 }
             }
             catch (Exception ex)
@@ -57,9 +59,10 @@ namespace 餐厅管理系统
 
                         if (user != null)
                         {
-                            this.Hide();
                             FormMain myform = new FormMain();   // 调用带参的构造函数
-                            myform.Show();
+                            this.Hide();
+                            myform.ShowDialog();
+                            this.Dispose();
                         }
                         else
                         {
@@ -77,9 +80,10 @@ namespace 餐厅管理系统
 
                     if (user != null)
                     {
-                        this.Hide();
                         FormResEdit myform = new FormResEdit(user);   // 调用带参的构造函数
-                        myform.Show();
+                        this.Hide();
+                        myform.ShowDialog();
+                        this.Dispose();
                     }
                     else if (apply != null)
                     {
@@ -89,6 +93,9 @@ namespace 餐厅管理系统
                     {
                         MessageBox.Show("尚未注册账户，请先注册");
                     }
+                    //释放连接
+                    context.Dispose();
+                    con.Dispose();
                 }
             }
             catch (Exception ex)
@@ -103,9 +110,10 @@ namespace 餐厅管理系统
             {
                 if (textBox5.Text == "2021302111")
                 {
-                    this.Hide();
                     FormAdministrator form4 = new FormAdministrator();   // 调用带参的构造函数
-                    form4.Show();
+                    this.Hide();
+                    form4.ShowDialog();
+                    this.Dispose();
                 }
             }
             catch (Exception ex)

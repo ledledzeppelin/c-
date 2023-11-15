@@ -170,5 +170,32 @@ namespace 餐厅管理系统
             dataGridView1.Columns.Add(pictureColumn);*/
         }
 
+        //点击查询结果的某个商家后跳转到商家详情界面
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // 获取选中的行
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                // 获取选中行的完整餐厅对象
+                Restaurant selectedRestaurant = selectedRow.DataBoundItem as Restaurant;
+
+                if (selectedRestaurant != null)
+                {
+                    // 在这里处理导航到详细页面的逻辑，使用 selectedRestaurant 对象
+                    OpenRestaurantDetailsForm(selectedRestaurant);
+                }
+            }
+        }   
+        // 跳转到商家详情
+        private void OpenRestaurantDetailsForm(Restaurant restaurant)
+        {
+            // 创建详细页面的窗体实例，并传递完整的餐厅对象
+            //FormResDetailClient detailsForm = new FormResDetailClient(restaurant);
+
+            // 显示详细页面的窗体
+            //detailsForm.Show();
+        }
     }
 }

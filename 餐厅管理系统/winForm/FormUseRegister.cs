@@ -49,13 +49,14 @@ namespace 餐厅管理系统
                         newuser.Location=textBox5.Text;
 
                         // 创建 UserDb 对象用于数据库操作
-                        UserDb udb = new UserDb();
+                        using (UserDb udb = new UserDb())
+                        {
+                            // 调用 UserDb 中的 AddUser 方法将新用户添加到数据库
+                            udb.AddUser(newuser);
 
-                        // 调用 UserDb 中的 AddUser 方法将新用户添加到数据库
-                        udb.AddUser(newuser);
-
-                        // 显示注册成功消息
-                        MessageBox.Show("注册成功");
+                            // 显示注册成功消息
+                            MessageBox.Show("注册成功");
+                        }
                     }
                     else
                     {
@@ -79,9 +80,10 @@ namespace 餐厅管理系统
         private void button2_Click(object sender, EventArgs e)
         {
             // 隐藏当前窗体并显示登录窗体
-            this.Hide();
             FormLogin form = new FormLogin();
-            form.Show();
+            this.Hide();
+            form.ShowDialog();
+            this.Dispose();
         }
 
         private void label1_Click(object sender, EventArgs e)

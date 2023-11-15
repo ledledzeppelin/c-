@@ -205,6 +205,12 @@
     <Compile Include="winForm\FormMain_sub1.Designer.cs">
       <DependentUpon>FormMain_sub1.cs</DependentUpon>
     </Compile>
+    <Compile Include="winForm\FormResDetailClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\FormResDetailClient.Designer.cs">
+      <DependentUpon>FormResDetailClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="winForm\FormResEdit.cs">
       <SubType>Form</SubType>
     </Compile>

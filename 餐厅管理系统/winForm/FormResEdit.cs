@@ -39,15 +39,14 @@ namespace 餐厅管理系统
 
         // 标记是否上传了图片
         bool isUpLoadPicture;
-
+        
         // 上传的图片的后缀名
         string empUpLoadPictureFormat;
 
         // OpenFileDialog 控件，用于选择上传的图片文件
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-        // 数据库操作对象，用于将菜品信息保存到数据库
-        DishDb db = new DishDb();
+        
 
         // 上传图片按钮点击事件
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -93,40 +92,43 @@ namespace 餐厅管理系统
                 // 如果上传了图片
                 if (isUpLoadPicture)
                 {
-                    // 设置菜品图片的名字:以餐厅名+菜品名+后缀名
-                    string dishImageName = res.Name + textBox2.Text + empUpLoadPictureFormat;
-
-                    // 将上传的图片复制到指定目录
-                    File.Copy(openFileDialog1.FileName, filename + "\\image\\dishimage\\" + dishImageName);
-
-                    // 创建菜品对象并设置属性
-                    Dish dish = new Dish();
-                    dish.DisPicture = dishImageName;
-                    dish.Price = decimal.Parse(textBox1.Text);
-                    dish.Name = textBox2.Text;
-
-                    db.AddDish(dish);
-
-                    // 获取餐厅对象并更新菜单
-                    RestaurantDb restaurantDb = new RestaurantDb();
-                    var restaurantupdate = restaurantDb.Restaurants.Find(res.RestaurantId);
-                    restaurantDb.Update(restaurantupdate);
-
-                    // 如果菜单为空，初始化菜单列表
-                    if (restaurantupdate.Menu == null)
+                    using (DishDb db = new DishDb())
                     {
-                        restaurantupdate.Menu = new List<Dish>();
+                        // 设置菜品图片的名字:以餐厅名+菜品名+后缀名
+                        string dishImageName = res.Name + textBox2.Text + empUpLoadPictureFormat;
+
+                        // 将上传的图片复制到指定目录
+                        File.Copy(openFileDialog1.FileName, filename + "\\image\\dishimage\\" + dishImageName);
+
+                        // 创建菜品对象并设置属性
+                        Dish dish = new Dish();
+                        dish.DisPicture = dishImageName;
+                        dish.Price = decimal.Parse(textBox1.Text);
+                        dish.Name = textBox2.Text;
+
+                        db.AddDish(dish);
+
+                        // 获取餐厅对象并更新菜单
+                        RestaurantDb restaurantDb = new RestaurantDb();
+                        var restaurantupdate = restaurantDb.Restaurants.Find(res.RestaurantId);
+                        restaurantDb.Update(restaurantupdate);
+
+                        // 如果菜单为空，初始化菜单列表
+                        if (restaurantupdate.Menu == null)
+                        {
+                            restaurantupdate.Menu = new List<Dish>();
+                        }
+
+                        // 添加菜品到菜单
+                        restaurantupdate.Menu.Add(dish);
+                        restaurantDb.SaveChanges();
+
+                        // 显示菜品上传成功消息
+                        MessageBox.Show("菜品上传成功");
+
+                        // 刷新 DataGridView 显示最新的菜单
+                        dataGridViewload(restaurantupdate.Menu);
                     }
-
-                    // 添加菜品到菜单
-                    restaurantupdate.Menu.Add(dish);
-                    restaurantDb.SaveChanges();
-
-                    // 显示菜品上传成功消息
-                    MessageBox.Show("菜品上传成功");
-
-                    // 刷新 DataGridView 显示最新的菜单
-                    dataGridViewload(restaurantupdate.Menu);
                 }
             }
             catch (Exception ex)
@@ -139,9 +141,10 @@ namespace 餐厅管理系统
         private void button2_Click(object sender, EventArgs e)
         {
             // 隐藏当前窗体并显示登录窗体
-            this.Hide();
             FormLogin form = new FormLogin();
-            form.Show();
+            this.Hide();
+            form.ShowDialog();
+            this.Dispose();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

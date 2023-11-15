@@ -47,7 +47,7 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(75, 38);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(75, 34);
             this.toolStripMenuItem2.Text = "主页";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -60,14 +60,14 @@
             this.我的ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1292, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1292, 38);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "文件";
             // 
             // 我的ToolStripMenuItem
             // 
             this.我的ToolStripMenuItem.Name = "我的ToolStripMenuItem";
-            this.我的ToolStripMenuItem.Size = new System.Drawing.Size(75, 38);
+            this.我的ToolStripMenuItem.Size = new System.Drawing.Size(75, 34);
             this.我的ToolStripMenuItem.Text = "我的";
             this.我的ToolStripMenuItem.Click += new System.EventHandler(this.我的ToolStripMenuItem_Click);
             // 
@@ -76,9 +76,9 @@
             this.panel_main.Controls.Add(this.panel_mine);
             this.panel_main.Controls.Add(this.panel_set_location);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(0, 42);
+            this.panel_main.Location = new System.Drawing.Point(0, 38);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1292, 750);
+            this.panel_main.Size = new System.Drawing.Size(1292, 754);
             this.panel_main.TabIndex = 3;
             // 
             // panel_mine
@@ -90,7 +90,7 @@
             this.panel_mine.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_mine.Location = new System.Drawing.Point(0, 0);
             this.panel_mine.Name = "panel_mine";
-            this.panel_mine.Size = new System.Drawing.Size(1292, 750);
+            this.panel_mine.Size = new System.Drawing.Size(1292, 754);
             this.panel_mine.TabIndex = 2;
             this.panel_mine.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -103,6 +103,7 @@
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1024, 446);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // SearchMod
             // 

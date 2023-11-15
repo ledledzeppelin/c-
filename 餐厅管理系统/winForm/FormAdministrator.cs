@@ -29,12 +29,13 @@ namespace 餐厅管理系统
         }
 
         // ...
-        ApplyDb applyDb = new ApplyDb();
-        RestaurantDb restaurantDb = new RestaurantDb();
-        ReviewDb reviewDb = new ReviewDb();
-        UserDb userDb = new UserDb();
+        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ApplyDb applyDb = new ApplyDb();
+            RestaurantDb restaurantDb = new RestaurantDb();
+            ReviewDb reviewDb = new ReviewDb();
+            UserDb userDb = new UserDb();
             // 下拉选项框，用于显示数据表
             switch (comboBox1.SelectedIndex)
             {
@@ -63,6 +64,10 @@ namespace 餐厅管理系统
                     button1.Visible = false;
                     break;
             }
+            applyDb.Dispose();
+            restaurantDb.Dispose();
+            reviewDb.Dispose();
+            userDb.Dispose();
         }
 
         
@@ -84,10 +89,16 @@ namespace 餐厅管理系统
                         var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
                         if (selectedDish != null)
                         {
+                            //建立连接
+                            ApplyDb applyDb = new ApplyDb();
+                            RestaurantDb restaurantDb = new RestaurantDb();
                             int id = selectedDish.RestaurantId;
                             // 删除申请并添加餐厅
                             applyDb.DeleteResApply(id);
                             restaurantDb.AddRestaurant(selectedDish);
+                            //释放连接
+                            applyDb.Dispose();
+                            restaurantDb.Dispose();
                         }
                     }
                     else
@@ -115,8 +126,11 @@ namespace 餐厅管理系统
                             var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
                             if (selectedDish != null)
                             {
-                                int id = selectedDish.RestaurantId;
-                                applyDb.DeleteResApply(id);
+                                using(ApplyDb applyDb = new ApplyDb())
+                                {
+                                    int id = selectedDish.RestaurantId;
+                                    applyDb.DeleteResApply(id);
+                                }
                             }
                         }
                         else
@@ -131,8 +145,11 @@ namespace 餐厅管理系统
                             var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
                             if (selectedDish != null)
                             {
-                                int id = selectedDish.RestaurantId;
-                                restaurantDb.DeleteRestaurant(id);
+                                using (RestaurantDb restaurantDb = new RestaurantDb())
+                                {
+                                    int id = selectedDish.RestaurantId;
+                                    restaurantDb.DeleteRestaurant(id);
+                                }
                             }
                         }
                         else
@@ -147,8 +164,11 @@ namespace 餐厅管理系统
                             var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Review;
                             if (selectedDish != null)
                             {
-                                int id = selectedDish.ReviewId;
-                                reviewDb.DeleteReview(id);
+                                using (ReviewDb reviewDb = new ReviewDb())
+                                {
+                                    int id = selectedDish.ReviewId;
+                                    reviewDb.DeleteReview(id);
+                                }
                             }
                         }
                         else
@@ -163,8 +183,11 @@ namespace 餐厅管理系统
                             var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as User;
                             if (selectedDish != null)
                             {
-                                int id = selectedDish.Id;
-                                userDb.DeleteUser(id);
+                                using(UserDb userDb = new UserDb())
+                                {
+                                    int id = selectedDish.Id;
+                                    userDb.DeleteUser(id);
+                                }
                             }
                         }
                         else
@@ -180,10 +203,7 @@ namespace 餐厅管理系统
             }
         }
 
-        private void FormAdministrator_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
     
 }
