@@ -1,4 +1,4 @@
-要使用数据库，修改数据库操作层（DataBase文件夹）中每个类的OnConfiguring函数，更改其中的数据库连接变为你的数据库
+要使用数据库，需要在自己的电脑上先下载mySQL，设置自己本机的mysql密码，记住这个密码并修改数据库操作层（DataBase文件夹）中每个类的OnConfiguring函数，更改其中的数据库连接变为你的数据库，password设置为本机mysql的密码
 
 然后包管理控制台运行                          
  Update-Database -Context 数据库的类

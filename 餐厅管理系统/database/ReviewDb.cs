@@ -14,7 +14,7 @@ namespace 餐厅管理系统
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 配置数据库连接，使用 MySQL 数据库提供程序和连接字符串
-            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=hf20030819;");
+            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=448260lklk;");
         }
 
         public DbSet<Review> Reviews { get; set; }

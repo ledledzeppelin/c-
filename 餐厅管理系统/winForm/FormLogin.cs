@@ -58,7 +58,7 @@ namespace 餐厅管理系统
                         if (user != null)
                         {
                             this.Hide();
-                            Form3 myform = new Form3();   // 调用带参的构造函数
+                            FormMain myform = new FormMain();   // 调用带参的构造函数
                             myform.Show();
                         }
                         else

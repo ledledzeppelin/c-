@@ -21,5 +21,15 @@ namespace 餐厅管理系统
         {
 
         }
+
+        /*private void panel_set_location_Click(object sender, EventArgs e)
+        {
+
+        }*/
+
+        private void panel_set_location_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
