@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace 餐厅管理系统
 {
     
-    public partial class FormResRegister : Form
+    public partial class FormResRegister : MetroForm
     {
         // 标记是否上传图片
         bool isUpLoadPicture;

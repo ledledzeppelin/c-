@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MetroFramework.Forms;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace 餐厅管理系统
 {
     
-    public partial class FormAdministrator : Form
+    public partial class FormAdministrator : MetroForm
     {
         public FormAdministrator()
         {

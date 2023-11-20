@@ -7,12 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System;
 using System.Device.Location;
 using 餐厅管理系统.util;
 using System.Security.Cryptography;
 using 餐厅管理系统.winForm;
 using 餐厅管理系统.database;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using System.IO;
+using System.Drawing.Drawing2D;
+using MetroFramework.Forms;
+//using static System.Net.Mime.MediaTypeNames;
+//using static System.Net.Mime.MediaTypeNames.Image;
+
+
 
 /**
  * 此窗口为用户交互的主要窗口，使用MDI窗体：
@@ -26,19 +34,17 @@ using 餐厅管理系统.database;
  */
 namespace 餐厅管理系统
 {
-    public partial class FormMain : Form
+    public partial class FormMain : MetroForm
     {
         double userLatitude;
         double userLongitude;
         public FormMain()
         {
             InitializeComponent();
-            InitializeDataGridView();
             // 初始显示主界面，并绑定各个控件到各自的panel上
             panel_main.Visible = true;
             panel_mine.Visible = false;
             panel_main.Controls.Add(panelMain_textBox);
-
             panel_main.Controls.Add(panel_set_location);
             panel_main.Controls.Add(Search);
             panel_main.Controls.Add(SearchMod);
@@ -46,17 +52,61 @@ namespace 餐厅管理系统
 
             //设置模式选择默认为综合排序
             SearchMod.SelectedIndex = 0;
+            // 初始在datagridview里按照餐厅星级从大到小显示餐厅
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            using (var context = new RestaurantDb())
+            {
+                var restaurants = context.Restaurants
+                    .OrderByDescending(r => r.Rate)
+                    .Select(r => new
+                    {
+                        RestaurantId = r.RestaurantId, // Assuming Id is the property for the ID
+                        ResPicture = r.ResPicture,
+                        ResName = r.Name,
+                        Rate = r.Rate
+                    })
+                    .ToList();
+
+
+                
+                //将id设置为隐藏列
+                DataGridViewTextBoxColumn idColumn = new DataGridViewTextBoxColumn();
+                idColumn.Name = "RestaurantId";
+                idColumn.Visible = false;
+                idColumn.DataPropertyName = "RestaurantId";
+                dataGridView1.Columns.Add(idColumn);
+
+                // 将图片列设置为DataGridViewImageColumn
+                DataGridViewImageColumn pictureColumn = new DataGridViewImageColumn();
+                pictureColumn.Name = "ResPictureTrueImage";
+                pictureColumn.HeaderText = "图片";
+                // 设置ImageLayout为Zoom，确保图片完整地显示在单元格中，同时维持其宽高比
+                pictureColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; 
+                dataGridView1.Columns.Add(pictureColumn);
+
+                // 将文件名列设置为隐藏列
+                DataGridViewTextBoxColumn ResPicColumn = new DataGridViewTextBoxColumn();
+                ResPicColumn.Name = "ResPicture";
+                ResPicColumn.Visible = false;
+                ResPicColumn.DataPropertyName = "ResPicture";
+                dataGridView1.Columns.Add(ResPicColumn);
+
+
+                dataGridView1.DataSource = restaurants;
+                
+                // 更改列的显示名称
+                dataGridView1.Columns["ResName"].HeaderText = "餐厅名称";
+                dataGridView1.Columns["Rate"].HeaderText = "星级";
+                //dataGridView1.Columns["ResPicture"].HeaderText = "图片"; // 如果有 ResPicture 列的话
+                dataGridView1.ClearSelection();
+            }
         }
 
         
-
-        /**
-         * 点击定位后，获取用户当前位置信息
-         */
-        private void panel_set_location_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void ShowForm(Form frm)
         {
@@ -73,13 +123,20 @@ namespace 餐厅管理系统
         {
 
         }
+        
+        private void panel_set_location_Click(object sender, EventArgs e)
+        {
 
+        }
+        //显示主页
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             panel_main.Visible = true;
             panel_mine.Visible = false;
         }
-
+        /**
+         * 点击定位后，获取用户当前位置信息
+         */
         private void panel_set_location_Click_1(object sender, EventArgs e)
         {
             List<double> location = new List<double>();
@@ -101,7 +158,7 @@ namespace 餐厅管理系统
         {
 
         }
-
+        //显示我的
         private void 我的ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel_main.Visible = false;
@@ -112,11 +169,12 @@ namespace 餐厅管理系统
         {
 
         }
-
+        /**
+         * 按键功能：根据查询模式、关键字在数据库中搜索餐厅，并将结果显示在DataGridView中
+         */
         private void Search_Click(object sender, EventArgs e)
         {
             string keyword = panelMain_textBox.Text.Trim();
-            MessageBox.Show(keyword);
             string mod = SearchMod.Text.Trim();
             // 创建数据库上下文实例，并在Restaurant数据库中查询
             using (var context = new RestaurantDb())
@@ -138,8 +196,6 @@ namespace 餐厅管理系统
                             //ResPicture = r.ResPicture
                         })
                         .ToList();
-                        int count = restaurants.Count();
-                        MessageBox.Show(count.ToString());
                         // 将查询结果绑定到 UI 控件，比如 DataGridView
                         dataGridView1.DataSource = restaurants;
                         break;
@@ -149,45 +205,6 @@ namespace 餐厅管理系统
                 }
             }
         }
-        private void InitializeDataGridView()
-        {
-            dataGridView1.AutoGenerateColumns = true;
-
-            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
-            nameColumn.DataPropertyName = "ResName";
-            nameColumn.HeaderText = "餐厅名称";
-            dataGridView1.Columns.Add(nameColumn);
-
-            DataGridViewTextBoxColumn rateColumn = new DataGridViewTextBoxColumn();
-            rateColumn.DataPropertyName = "Rate";
-            rateColumn.HeaderText = "星级";
-            dataGridView1.Columns.Add(rateColumn);
-
-            // 图片可能需要使用DataGridViewImageColumn，具体情况根据ResPicture的类型和存储方式来调整
-           /* DataGridViewImageColumn pictureColumn = new DataGridViewImageColumn();
-            pictureColumn.DataPropertyName = "ResPicture";
-            pictureColumn.HeaderText = "图片";
-            dataGridView1.Columns.Add(pictureColumn);*/
-        }
-
-        //点击查询结果的某个商家后跳转到商家详情界面
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                // 获取选中的行
-                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-                // 获取选中行的完整餐厅对象
-                Restaurant selectedRestaurant = selectedRow.DataBoundItem as Restaurant;
-
-                if (selectedRestaurant != null)
-                {
-                    // 在这里处理导航到详细页面的逻辑，使用 selectedRestaurant 对象
-                    OpenRestaurantDetailsForm(selectedRestaurant);
-                }
-            }
-        }   
         // 跳转到商家详情
         private void OpenRestaurantDetailsForm(Restaurant restaurant)
         {
@@ -196,6 +213,86 @@ namespace 餐厅管理系统
 
             // 显示详细页面的窗体
             //detailsForm.Show();
+        }
+
+        /** 
+         * 令datagridview显示商家图片
+         */
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            // 判断是否是ResPictureTrueImage列，并且不是标题行
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "ResPictureTrueImage" && e.RowIndex >= 0)
+            {
+                // 获取ResPicture列的单元格值（文件名）
+                string fileName = dataGridView1.Rows[e.RowIndex].Cells["ResPicture"].Value as string;
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    
+                    // 文件路径往上退两级
+                    string parentDirectory = Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName;
+
+                    // 获取图片的完整路径
+                    string imagePath = Path.Combine(parentDirectory, "image", "restaurantimage", fileName);
+                    // 检查图片文件是否存在
+                    if (File.Exists(imagePath))
+                    {
+                        // 从文件加载图片
+                        Image image = Image.FromFile(imagePath);
+
+                        // 调整图片大小以适应单元格，按比例缩放
+                        int cellWidth = dataGridView1.Columns[e.ColumnIndex].Width;
+                        int cellHeight = dataGridView1.Rows[e.RowIndex].Height;
+                        if (image.Width > cellWidth || image.Height > cellHeight)
+                        {
+                            double ratioX = (double)cellWidth / image.Width;
+                            double ratioY = (double)cellHeight / image.Height;
+                            double ratio = Math.Min(ratioX, ratioY);
+
+                            int newWidth = (int)(image.Width * ratio);
+                            int newHeight = (int)(image.Height * ratio);
+
+                            // 将调整后的图片显示在ResPictureTrueImage列中
+                            e.Value = ResizeImage(image, newWidth, newHeight);
+                        }
+                        else
+                        {
+                            e.Value = image;
+                        }
+                    }
+                }
+            }
+            dataGridView1.ClearSelection();
+        }
+        // 调整图片大小的辅助函数
+        private Image ResizeImage(Image imgToResize, int width, int height)
+        {
+            Bitmap b = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage((Image)b))
+            {
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.DrawImage(imgToResize, 0, 0, width, height);
+            }
+            return (Image)b;
+        }
+        // 双击某一行后跳转到商家详情界面
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                int restaurantId = Convert.ToInt32(selectedRow.Cells["RestaurantId"].Value);
+                string resName = selectedRow.Cells["ResName"].Value?.ToString();
+                int rate = Convert.ToInt32(selectedRow.Cells["Rate"].Value);
+                string resPicture = selectedRow.Cells["ResPicture"].Value?.ToString();
+
+                // 在这里处理导航到详细页面的逻辑，使用上面获取的属性值
+                FormResDetailClient myform = new FormResDetailClient();   // 调用带参的构造函数
+                this.Hide();
+                myform.ShowDialog();
+                this.Dispose();
+            }
         }
     }
 }

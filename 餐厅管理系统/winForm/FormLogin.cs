@@ -10,14 +10,20 @@ using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using 餐厅管理系统.database;
+using MetroFramework.Forms;
+using MetroFramework.Components;
+using MetroSet_UI.Forms;
+using 餐厅管理系统.winForm;
 
 namespace 餐厅管理系统
 {
-   public partial class FormLogin : Form
+   public partial class FormLogin : MetroForm
     {
         public FormLogin()
         {
             InitializeComponent();
+            // 设置 Modern UI 主题
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -125,6 +131,22 @@ namespace 餐厅管理系统
         private void FormLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormMain form4 = new FormMain();
+            this.Hide();
+            form4.ShowDialog();
+            this.Dispose();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            FormMain form4 = new FormMain();
+            this.Hide();
+            form4.ShowDialog();
+            this.Dispose();
         }
     }
  

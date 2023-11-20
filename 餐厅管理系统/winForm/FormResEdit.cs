@@ -11,11 +11,12 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using 餐厅管理系统.database;
 using 餐厅管理系统.data;
+using MetroFramework.Forms;
 
 namespace 餐厅管理系统
 {
     
-    internal partial class FormResEdit : Form
+    internal partial class FormResEdit : MetroForm
     {
         // 餐厅对象
         Restaurant res;

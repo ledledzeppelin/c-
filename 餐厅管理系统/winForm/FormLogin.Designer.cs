@@ -38,20 +38,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(289, 103);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(222, 25);
+            this.textBox3.Size = new System.Drawing.Size(222, 31);
             this.textBox3.TabIndex = 0;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(289, 212);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(222, 25);
+            this.textBox4.Size = new System.Drawing.Size(222, 31);
             this.textBox4.TabIndex = 1;
             // 
             // label3
@@ -59,7 +61,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(168, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.Size = new System.Drawing.Size(52, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "账号";
             // 
@@ -68,7 +70,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(161, 212);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 3;
             this.label4.Text = "密码";
             // 
@@ -96,7 +98,7 @@
             // 
             this.button5.Location = new System.Drawing.Point(721, 214);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(179, 23);
+            this.button5.Size = new System.Drawing.Size(204, 52);
             this.button5.TabIndex = 6;
             this.button5.Text = "点击进入管理员模式";
             this.button5.UseVisualStyleBackColor = true;
@@ -107,7 +109,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(718, 113);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 15);
+            this.label5.Size = new System.Drawing.Size(178, 21);
             this.label5.TabIndex = 7;
             this.label5.Text = "请输入管理员密匙";
             // 
@@ -115,7 +117,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(721, 157);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(174, 25);
+            this.textBox5.Size = new System.Drawing.Size(174, 31);
             this.textBox5.TabIndex = 8;
             // 
             // comboBox1
@@ -126,12 +128,33 @@
             "餐厅"});
             this.comboBox1.Location = new System.Drawing.Point(91, 38);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.Size = new System.Drawing.Size(121, 29);
             this.comboBox1.TabIndex = 9;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(165, 408);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(101, 46);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "调试";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(364, 393);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(149, 61);
+            this.metroButton1.TabIndex = 11;
+            this.metroButton1.Text = "调试";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // FormLogin
             // 
-            this.ClientSize = new System.Drawing.Size(1049, 481);
+            this.ClientSize = new System.Drawing.Size(1095, 545);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label5);
@@ -142,6 +165,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
@@ -167,6 +191,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button6;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 

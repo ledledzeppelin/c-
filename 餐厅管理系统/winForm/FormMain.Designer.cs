@@ -38,6 +38,8 @@
             this.Search = new System.Windows.Forms.Button();
             this.panelMain_textBox = new System.Windows.Forms.TextBox();
             this.panel_set_location = new System.Windows.Forms.Button();
+            this.ResName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.panel_mine.SuspendLayout();
@@ -58,9 +60,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2,
             this.我的ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1292, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1252, 38);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "文件";
             // 
@@ -76,9 +78,9 @@
             this.panel_main.Controls.Add(this.panel_mine);
             this.panel_main.Controls.Add(this.panel_set_location);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(0, 38);
+            this.panel_main.Location = new System.Drawing.Point(20, 98);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1292, 754);
+            this.panel_main.Size = new System.Drawing.Size(1252, 674);
             this.panel_main.TabIndex = 3;
             // 
             // panel_mine
@@ -90,20 +92,21 @@
             this.panel_mine.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_mine.Location = new System.Drawing.Point(0, 0);
             this.panel_mine.Name = "panel_mine";
-            this.panel_mine.Size = new System.Drawing.Size(1292, 754);
+            this.panel_mine.Size = new System.Drawing.Size(1252, 674);
             this.panel_mine.TabIndex = 2;
             this.panel_mine.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(111, 239);
+            this.dataGridView1.Location = new System.Drawing.Point(115, 206);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 72;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1024, 446);
             this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // SearchMod
             // 
@@ -145,6 +148,20 @@
             this.panel_set_location.UseVisualStyleBackColor = true;
             this.panel_set_location.Click += new System.EventHandler(this.panel_set_location_Click_1);
             // 
+            // ResName
+            // 
+            this.ResName.HeaderText = "餐厅名称";
+            this.ResName.MinimumWidth = 9;
+            this.ResName.Name = "ResName";
+            this.ResName.Width = 175;
+            // 
+            // Rate
+            // 
+            this.Rate.HeaderText = "星级";
+            this.Rate.MinimumWidth = 9;
+            this.Rate.Name = "Rate";
+            this.Rate.Width = 175;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -180,5 +197,7 @@
         private System.Windows.Forms.Button Search;
         private System.Windows.Forms.ComboBox SearchMod;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
     }
 }
