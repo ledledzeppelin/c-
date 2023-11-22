@@ -8,9 +8,10 @@ using 餐厅管理系统.data;
 
 namespace 餐厅管理系统
 {
-    internal class Restaurant
+    public class Restaurant
     {
         public int RestaurantId { get; set; }
+
         public string Name { get; set; }
         public string Account {  get; set; }
         public string Address { get; set; }

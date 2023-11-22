@@ -54,6 +54,9 @@ namespace 餐厅管理系统
             SearchMod.SelectedIndex = 0;
             // 初始在datagridview里按照餐厅星级从大到小显示餐厅
             LoadData();
+
+
+
         }
 
         private void LoadData()
@@ -205,15 +208,6 @@ namespace 餐厅管理系统
                 }
             }
         }
-        // 跳转到商家详情
-        private void OpenRestaurantDetailsForm(Restaurant restaurant)
-        {
-            // 创建详细页面的窗体实例，并传递完整的餐厅对象
-            //FormResDetailClient detailsForm = new FormResDetailClient(restaurant);
-
-            // 显示详细页面的窗体
-            //detailsForm.Show();
-        }
 
         /** 
          * 令datagridview显示商家图片
@@ -233,7 +227,7 @@ namespace 餐厅管理系统
                     string parentDirectory = Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName;
 
                     // 获取图片的完整路径
-                    string imagePath = Path.Combine(parentDirectory, "image", "restaurantimage", fileName);
+                    string imagePath = ResInfo.GetImagePath(fileName, 0);
                     // 检查图片文件是否存在
                     if (File.Exists(imagePath))
                     {
@@ -275,8 +269,19 @@ namespace 餐厅管理系统
             }
             return (Image)b;
         }
+
+        // 跳转到商家详情
+        private void OpenRestaurantDetailsForm(int restaurantId)
+        {
+            // 创建详细页面的窗体实例，并传递完整的餐厅对象
+            FormResDetailClient detailsForm = new FormResDetailClient(restaurantId);
+
+            // 显示详细页面的窗体
+            //detailsForm.Show();
+        }
+
         // 双击某一行后跳转到商家详情界面
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -287,8 +292,9 @@ namespace 餐厅管理系统
                 int rate = Convert.ToInt32(selectedRow.Cells["Rate"].Value);
                 string resPicture = selectedRow.Cells["ResPicture"].Value?.ToString();
 
+                OpenRestaurantDetailsForm(restaurantId);
                 // 在这里处理导航到详细页面的逻辑，使用上面获取的属性值
-                FormResDetailClient myform = new FormResDetailClient();   // 调用带参的构造函数
+                FormResDetailClient myform = new FormResDetailClient(restaurantId);   // 调用带参的构造函数
                 this.Hide();
                 myform.ShowDialog();
                 this.Dispose();

@@ -30,19 +30,18 @@ namespace 餐厅管理系统
         }
 
         // ...
-        
+
+        RestaurantDb restaurantDb = new RestaurantDb();
+
+        UserDb userDb = new UserDb();
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ApplyDb applyDb = new ApplyDb();
-            RestaurantDb restaurantDb = new RestaurantDb();
-            ReviewDb reviewDb = new ReviewDb();
-            UserDb userDb = new UserDb();
             // 下拉选项框，用于显示数据表
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
                     // 已提交待审核的餐厅申请
-                    var apply = applyDb.ResApplys.ToList();
+                    var apply = restaurantDb.ResApplys.ToList();
                     dataGridViewload(apply);
                     button1.Visible = true;
                     break;
@@ -54,7 +53,7 @@ namespace 餐厅管理系统
                     break;
                 case 2:
                     // 显示评论数据
-                    var reviews = reviewDb.Reviews.ToList();
+                    var reviews = restaurantDb.Reviews.ToList();
                     dataGridViewload(reviews);
                     button1.Visible = false;
                     break;
@@ -65,18 +64,14 @@ namespace 餐厅管理系统
                     button1.Visible = false;
                     break;
             }
-            applyDb.Dispose();
-            restaurantDb.Dispose();
-            reviewDb.Dispose();
-            userDb.Dispose();
         }
 
-        
-            private void dataGridViewload<T>(List<T> itemList)
-            {
-                dataGridView1.DataSource = itemList;
-            }
-        
+
+        private void dataGridViewload<T>(List<T> itemList)
+        {
+            dataGridView1.DataSource = itemList;
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -87,19 +82,19 @@ namespace 餐厅管理系统
                     if (dataGridView1.SelectedRows.Count > 0)
                     {
                         // 获取选定的餐厅申请
-                        var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
+                        var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as ResApply;
                         if (selectedDish != null)
                         {
-                            //建立连接
-                            ApplyDb applyDb = new ApplyDb();
-                            RestaurantDb restaurantDb = new RestaurantDb();
-                            int id = selectedDish.RestaurantId;
+                            int id = selectedDish.ResApplyId;
+                            Restaurant re = new Restaurant();
+                            re.Name = selectedDish.Name;
+                            re.Address = selectedDish.Address;
+                            re.Account = selectedDish.Account;
+                            re.Password = selectedDish.Password;
+                            re.ResPicture = selectedDish.ResPicture;
                             // 删除申请并添加餐厅
-                            applyDb.DeleteResApply(id);
-                            restaurantDb.AddRestaurant(selectedDish);
-                            //释放连接
-                            applyDb.Dispose();
-                            restaurantDb.Dispose();
+                            restaurantDb.DeleteResApply(id);
+                            restaurantDb.AddRestaurant(re);
                         }
                     }
                     else
@@ -114,6 +109,7 @@ namespace 餐厅管理系统
             }
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -127,7 +123,7 @@ namespace 餐厅管理系统
                             var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Restaurant;
                             if (selectedDish != null)
                             {
-                                using(ApplyDb applyDb = new ApplyDb())
+                                using(RestaurantDb applyDb = new RestaurantDb())
                                 {
                                     int id = selectedDish.RestaurantId;
                                     applyDb.DeleteResApply(id);
@@ -165,7 +161,7 @@ namespace 餐厅管理系统
                             var selectedDish = dataGridView1.SelectedRows[0].DataBoundItem as Review;
                             if (selectedDish != null)
                             {
-                                using (ReviewDb reviewDb = new ReviewDb())
+                                using (RestaurantDb reviewDb = new RestaurantDb())
                                 {
                                     int id = selectedDish.ReviewId;
                                     reviewDb.DeleteReview(id);

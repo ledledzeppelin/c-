@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Windows.Forms;
 
-namespace 餐厅管理系统
+namespace 餐厅管理系统.database
 {
-    internal class UserDb : DbContext
+    internal class UserDb: DbContext
     {
 
 
@@ -17,7 +15,7 @@ namespace 餐厅管理系统
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 使用 MySQL 数据库提供程序和连接字符串
-            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=448260lklk;");
+            optionsBuilder.UseMySql("Server=localhost;Database=re;User Id=root;Password=hf20030819;");
         }
         public DbSet<User> Users { get; set; }
 
@@ -32,7 +30,7 @@ namespace 餐厅管理系统
             SaveChanges();
         }
 
-     
+
 
         public void DeleteUser(int dishid)  //仅管理员能使用，删除相应的账号
         {
@@ -47,3 +45,4 @@ namespace 餐厅管理系统
         }
     }
 }
+   

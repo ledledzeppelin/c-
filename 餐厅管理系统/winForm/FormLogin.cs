@@ -80,7 +80,7 @@ namespace 餐厅管理系统
                 else
                 {
                     var context = new RestaurantDb();
-                    var con = new ApplyDb();
+                    var con = new RestaurantDb();
                     var user = context.Restaurants.FirstOrDefault(u => u.Account == username && u.Password == password);
                     var apply = con.ResApplys.FirstOrDefault(u => u.Account == username && u.Password == password);
 

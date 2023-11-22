@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using 餐厅管理系统;
+using 餐厅管理系统.database;
 
 namespace 餐厅管理系统.Migrations.UserDbMigrations
 {

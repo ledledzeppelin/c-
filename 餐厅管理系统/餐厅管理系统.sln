@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "餐厅管理系统", "餐厅管理系统.csproj", "{C2E611F6-B4D7-4BF4-9A56-42FF4F6BFEDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsControlLibrary1", "..\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1.csproj", "{8657D1CB-7542-4B39-B60A-6DC3E7D809A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C2E611F6-B4D7-4BF4-9A56-42FF4F6BFEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2E611F6-B4D7-4BF4-9A56-42FF4F6BFEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2E611F6-B4D7-4BF4-9A56-42FF4F6BFEDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8657D1CB-7542-4B39-B60A-6DC3E7D809A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8657D1CB-7542-4B39-B60A-6DC3E7D809A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8657D1CB-7542-4B39-B60A-6DC3E7D809A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8657D1CB-7542-4B39-B60A-6DC3E7D809A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

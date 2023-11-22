@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace 餐厅管理系统.winForm
 {
@@ -33,6 +34,8 @@ namespace 餐厅管理系统.winForm
             this.metroTabControlMain = new MetroFramework.Controls.MetroTabControl();
             this.PageMain = new MetroFramework.Controls.MetroTabPage();
             this.metroPanelMain = new MetroFramework.Controls.MetroPanel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SearchMod = new MetroFramework.Controls.MetroComboBox();
             this.Search = new MetroFramework.Controls.MetroButton();
             this.panelMain_textBox = new MetroFramework.Controls.MetroTextBox();
             this.PageMine = new MetroFramework.Controls.MetroTabPage();
@@ -40,6 +43,7 @@ namespace 餐厅管理系统.winForm
             this.metroTabControlMain.SuspendLayout();
             this.PageMain.SuspendLayout();
             this.metroPanelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.PageMine.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +71,8 @@ namespace 餐厅管理系统.winForm
             // 
             // metroPanelMain
             // 
+            this.metroPanelMain.Controls.Add(this.dataGridView1);
+            this.metroPanelMain.Controls.Add(this.SearchMod);
             this.metroPanelMain.Controls.Add(this.Search);
             this.metroPanelMain.Controls.Add(this.panelMain_textBox);
             this.metroPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,6 +87,33 @@ namespace 餐厅管理系统.winForm
             this.metroPanelMain.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanelMain.VerticalScrollbarSize = 10;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(60, 187);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 72;
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.Size = new System.Drawing.Size(1039, 444);
+            this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // SearchMod
+            // 
+            this.SearchMod.FormattingEnabled = true;
+            this.SearchMod.ItemHeight = 23;
+            this.SearchMod.Items.AddRange(new object[] {
+            "距离",
+            "星级",
+            "综合"});
+            this.SearchMod.Location = new System.Drawing.Point(60, 39);
+            this.SearchMod.Name = "SearchMod";
+            this.SearchMod.Size = new System.Drawing.Size(121, 29);
+            this.SearchMod.TabIndex = 4;
+            this.SearchMod.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
+            // 
             // Search
             // 
             this.Search.Location = new System.Drawing.Point(1008, 39);
@@ -88,6 +121,7 @@ namespace 餐厅管理系统.winForm
             this.Search.Size = new System.Drawing.Size(91, 50);
             this.Search.TabIndex = 3;
             this.Search.Text = "搜索";
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // panelMain_textBox
             // 
@@ -131,6 +165,7 @@ namespace 餐厅管理系统.winForm
             this.metroTabControlMain.ResumeLayout(false);
             this.PageMain.ResumeLayout(false);
             this.metroPanelMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.PageMine.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -145,5 +180,7 @@ namespace 餐厅管理系统.winForm
         private MetroFramework.Controls.MetroPanel metroPanelMine;
         private MetroFramework.Controls.MetroTextBox panelMain_textBox;
         private MetroFramework.Controls.MetroButton Search;
+        private MetroFramework.Controls.MetroComboBox SearchMod;
+        private DataGridView dataGridView1;
     }
 }

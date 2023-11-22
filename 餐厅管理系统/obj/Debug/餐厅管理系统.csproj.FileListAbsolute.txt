@@ -282,3 +282,4 @@ D:\餐厅管理\c-finally-work\餐厅管理系统\bin\Debug\MetroFramework.dll
 D:\餐厅管理\c-finally-work\餐厅管理系统\bin\Debug\MetroFramework.Fonts.dll
 D:\餐厅管理\c-finally-work\餐厅管理系统\bin\Debug\MetroSet UI.dll
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.winForm.FormMainMetro.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.winForm.FormResDetailClient.resources

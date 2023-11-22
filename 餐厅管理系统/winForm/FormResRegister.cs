@@ -1,5 +1,4 @@
-﻿using MetroFramework.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +14,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace 餐厅管理系统
 {
-    
-    public partial class FormResRegister : MetroForm
+
+    public partial class FormResRegister : Form
     {
         // 标记是否上传图片
         bool isUpLoadPicture;
@@ -28,7 +27,7 @@ namespace 餐厅管理系统
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
         // 数据库操作对象，用于将餐厅信息保存到数据库
-        //ApplyDb db = new ApplyDb();
+        RestaurantDb db = new RestaurantDb();
 
         public FormResRegister()
         {
@@ -52,28 +51,25 @@ namespace 餐厅管理系统
                 // 如果上传了图片
                 if (isUpLoadPicture)
                 {
-                    using(ApplyDb db = new ApplyDb())
-                    {
-                        // 设置餐厅图片的名字:以系统当前时间毫秒来命名
-                        string resImageName = textBox1.Text + "商家图片." + empUpLoadPictureFormat;
+                    // 设置餐厅图片的名字:以系统当前时间毫秒来命名
+                    string resImageName = textBox1.Text + "商家图片." + empUpLoadPictureFormat;
 
-                        // 将上传的图片复制到指定目录
-                        File.Copy(openFileDialog1.FileName, filename + "\\image\\restaurantimage\\" + resImageName);
+                    // 将上传的图片复制到指定目录
+                    File.Copy(openFileDialog1.FileName, filename + "\\image\\restaurantimage\\" + resImageName);
 
-                        // 创建餐厅对象并设置属性
-                        Restaurant restaurant = new Restaurant();
-                        restaurant.Name = textBox1.Text;
-                        restaurant.Account = textBox2.Text;
-                        restaurant.Password = textBox3.Text;
-                        restaurant.Address = textBox4.Text;
-                        restaurant.ResPicture = resImageName;
+                    // 创建餐厅对象并设置属性
+                    ResApply restaurant = new ResApply();
+                    restaurant.Name = textBox1.Text;
+                    restaurant.Account = textBox2.Text;
+                    restaurant.Password = textBox3.Text;
+                    restaurant.Address = textBox4.Text;
+                    restaurant.ResPicture = resImageName;
 
-                        // 将餐厅信息添加到数据库
-                        db.AddResApply(restaurant);
+                    // 将餐厅信息添加到数据库
+                    db.AddResApply(restaurant);
 
-                        // 显示申请已提交消息
-                        MessageBox.Show("申请已提交，请耐心等待");
-                    }
+                    // 显示申请已提交消息
+                    MessageBox.Show("申请已提交，请耐心等待");
                 }
             }
             catch (Exception ex)
@@ -123,10 +119,9 @@ namespace 餐厅管理系统
         private void button3_Click_1(object sender, EventArgs e)
         {
             // 隐藏当前窗体并显示登录窗体
-            FormLogin form = new FormLogin();
             this.Hide();
-            form.ShowDialog();
-            this.Dispose();
+            FormLogin form = new FormLogin();
+            form.Show();
         }
 
         private void FormResRegister_Load_2(object sender, EventArgs e)
@@ -134,5 +129,5 @@ namespace 餐厅管理系统
 
         }
     }
-    
+
 }

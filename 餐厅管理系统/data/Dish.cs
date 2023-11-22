@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 餐厅管理系统.database;
 
 namespace 餐厅管理系统.data
 {
@@ -10,12 +11,13 @@ namespace 餐厅管理系统.data
     {
         public int DishId { get; set; }
 
-       // public int RestaurantId { get; set; }
+        public int RestaurantId { get; set; }
 
         public string DisPicture { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        // 可以添加其他菜品相关的属性
+       
+        public Restaurant Restaurant { get; set; }
     }
 
 }
