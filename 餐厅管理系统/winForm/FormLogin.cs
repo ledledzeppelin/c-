@@ -65,7 +65,7 @@ namespace 餐厅管理系统
 
                         if (user != null)
                         {
-                            FormMain myform = new FormMain();   // 调用带参的构造函数
+                            FormMain myform = new FormMain(username);   // 调用带参的构造函数
                             this.Hide();
                             myform.ShowDialog();
                             this.Dispose();
@@ -135,7 +135,7 @@ namespace 餐厅管理系统
 
         private void button6_Click(object sender, EventArgs e)
         {
-            FormMain form4 = new FormMain();
+            FormMainMetro form4 = new FormMainMetro("1");
             this.Hide();
             form4.ShowDialog();
             this.Dispose();
@@ -143,7 +143,7 @@ namespace 餐厅管理系统
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            FormMain form4 = new FormMain();
+            FormMain form4 = new FormMain("1");
             this.Hide();
             form4.ShowDialog();
             this.Dispose();

@@ -1,4 +1,6 @@
-﻿namespace 餐厅管理系统.winForm
+﻿using System.Drawing;
+
+namespace 餐厅管理系统.winForm
 {
     partial class FormResDetailClient
     {
@@ -34,18 +36,17 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelRate = new MetroFramework.Controls.MetroLabel();
             this.MetroResName = new MetroFramework.Controls.MetroLabel();
-            this.metroPanelDish = new MetroFramework.Controls.MetroPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.commentPanel1 = new 餐厅管理系统.controls.CommentPanel();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRate)).BeginInit();
-            this.metroPanelDish.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
-            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroPanel1.BackColor = System.Drawing.Color.Transparent;
             this.metroPanel1.Controls.Add(this.metroLabelAddress);
             this.metroPanel1.Controls.Add(this.pictureBoxRate);
@@ -55,9 +56,9 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(20, 60);
+            this.metroPanel1.Location = new System.Drawing.Point(20, 132);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1369, 199);
+            this.metroPanel1.Size = new System.Drawing.Size(1381, 199);
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -109,67 +110,54 @@
             this.MetroResName.TabIndex = 2;
             this.MetroResName.Text = "metroLabel1";
             // 
-            // metroPanelDish
+            // flowLayoutPanel2
             // 
-            this.metroPanelDish.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanelDish.BackColor = System.Drawing.Color.Transparent;
-            this.metroPanelDish.Controls.Add(this.metroLabel2);
-            this.metroPanelDish.HorizontalScrollbarBarColor = true;
-            this.metroPanelDish.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanelDish.HorizontalScrollbarSize = 10;
-            this.metroPanelDish.Location = new System.Drawing.Point(15, 305);
-            this.metroPanelDish.Name = "metroPanelDish";
-            this.metroPanelDish.Size = new System.Drawing.Size(1374, 243);
-            this.metroPanelDish.TabIndex = 1;
-            this.metroPanelDish.VerticalScrollbarBarColor = true;
-            this.metroPanelDish.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanelDish.VerticalScrollbarSize = 10;
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(20, 385);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1384, 215);
+            this.flowLayoutPanel2.TabIndex = 4;
             // 
             // metroLabel2
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(0, 0);
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.Location = new System.Drawing.Point(23, 358);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(51, 19);
-            this.metroLabel2.TabIndex = 2;
+            this.metroLabel2.Size = new System.Drawing.Size(78, 24);
+            this.metroLabel2.TabIndex = 0;
             this.metroLabel2.Text = "推荐菜";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // flowLayoutPanel1
+            // commentPanel1
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 592);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1369, 275);
-            this.flowLayoutPanel1.TabIndex = 2;
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(20, 555);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(65, 19);
-            this.metroLabel3.TabIndex = 3;
-            this.metroLabel3.Text = "网友评价";
+            this.commentPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.commentPanel1.Comment = null;
+            this.commentPanel1.Image = null;
+            this.commentPanel1.Location = new System.Drawing.Point(20, 623);
+            this.commentPanel1.Name = "commentPanel1";
+            this.commentPanel1.NickName = null;
+            this.commentPanel1.Rate = 5;
+            this.commentPanel1.Size = new System.Drawing.Size(1384, 690);
+            this.commentPanel1.TabIndex = 5;
             // 
             // FormResDetailClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1409, 887);
-            this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.metroPanelDish);
+            this.ClientSize = new System.Drawing.Size(1474, 1349);
+            this.Controls.Add(this.commentPanel1);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.metroPanel1);
             this.Name = "FormResDetailClient";
             this.RightToLeftLayout = true;
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRate)).EndInit();
-            this.metroPanelDish.ResumeLayout(false);
-            this.metroPanelDish.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -181,9 +169,8 @@
         private MetroFramework.Controls.MetroLabel metroLabelRate;
         private MetroFramework.Controls.MetroLabel metroLabelAddress;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroPanel metroPanelDish;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private controls.CommentPanel commentPanel1;
     }
 }

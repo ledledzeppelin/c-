@@ -12,7 +12,7 @@ namespace 餐厅管理系统
 
         public int RestaurantId { get; set; }
 
-        public string UserId { get; set; } // 用户名ID
+        public string UserId { get; set; } // 用户Id
         public string Comment { get; set; } // 具体评论
         public int Rating { get; set; } // 评分
 

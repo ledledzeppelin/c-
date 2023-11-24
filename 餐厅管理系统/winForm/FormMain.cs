@@ -36,9 +36,10 @@ namespace 餐厅管理系统
 {
     public partial class FormMain : MetroForm
     {
-        double userLatitude;
-        double userLongitude;
-        public FormMain()
+        private double userLatitude;
+        private double userLongitude;
+        private string userName;
+        public FormMain(string userName)
         {
             InitializeComponent();
             // 初始显示主界面，并绑定各个控件到各自的panel上
@@ -54,9 +55,7 @@ namespace 餐厅管理系统
             SearchMod.SelectedIndex = 0;
             // 初始在datagridview里按照餐厅星级从大到小显示餐厅
             LoadData();
-
-
-
+            this.userName = userName;
         }
 
         private void LoadData()
@@ -274,7 +273,7 @@ namespace 餐厅管理系统
         private void OpenRestaurantDetailsForm(int restaurantId)
         {
             // 创建详细页面的窗体实例，并传递完整的餐厅对象
-            FormResDetailClient detailsForm = new FormResDetailClient(restaurantId);
+            FormResDetailClient detailsForm = new FormResDetailClient(restaurantId,userName);
 
             // 显示详细页面的窗体
             //detailsForm.Show();
@@ -292,9 +291,7 @@ namespace 餐厅管理系统
                 int rate = Convert.ToInt32(selectedRow.Cells["Rate"].Value);
                 string resPicture = selectedRow.Cells["ResPicture"].Value?.ToString();
 
-                OpenRestaurantDetailsForm(restaurantId);
-                // 在这里处理导航到详细页面的逻辑，使用上面获取的属性值
-                FormResDetailClient myform = new FormResDetailClient(restaurantId);   // 调用带参的构造函数
+                FormResDetailClient myform = new FormResDetailClient(restaurantId, userName);   // 调用带参的构造函数
                 this.Hide();
                 myform.ShowDialog();
                 this.Dispose();

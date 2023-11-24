@@ -11,6 +11,7 @@ using System.Net;
 using 餐厅管理系统;
 using 餐厅管理系统.data;
 using Microsoft.EntityFrameworkCore;
+using 餐厅管理系统.controls;
 
 /*
  * 封装了一些显示餐厅信息的函数，
@@ -65,6 +66,7 @@ namespace 餐厅管理系统.util
             */
         }
 
+        //
         public static string GetAddress(int resId)
         {
             string add;
@@ -81,7 +83,7 @@ namespace 餐厅管理系统.util
 
         /*
         *返回图片路径
-        * 参数 mod 0-返回餐厅图片  1-返回菜品图片
+        * 参数 mod 0-返回餐厅图片路径  1-返回菜品图片路径   2-返回用户头像图片路径
         */
         public static string GetImagePath(string fileName, int mod)
         {
@@ -97,6 +99,10 @@ namespace 餐厅管理系统.util
                 //菜品图片
                 case 1:
                     imagePath = Path.Combine(parentDirectory, "image", "dishimage", fileName);
+                    break;
+                //用户头像
+                case 2:
+                    imagePath = Path.Combine(parentDirectory, "image", "userImage", fileName);
                     break;
 
                 default: return null;
@@ -198,6 +204,36 @@ namespace 餐厅管理系统.util
                 return dishesForRestaurant;
             }
         }*/
+        // 用户提交评论到数据库
+        public static void AddCommentToDb(Review myReview)
+        {
+            using (var context = new RestaurantDb())
+            {
+                // 将评论添加到数据库
+                context.Reviews.Add(myReview);
+                context.SaveChanges();
+            }
+        }
+
+        // 根据用户账号（userName）查找昵称NickName
+        public static string GetUserNicknameByUserName(string userName)
+        {
+            using (var context = new UserDb())
+            {
+                var userNickname = context.Users
+                    .Where(user => user.Username == userName)
+                    .Select(user => user.Nickname)
+                    .FirstOrDefault();
+
+                return userNickname;
+            }
+        }
+
+        // 更新评论区的显示
+        public static void RefreshComment(CommentPanel commentPanel)
+        {
+            
+        }
     }
 
 }

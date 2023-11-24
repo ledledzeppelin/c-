@@ -40,6 +40,7 @@
             this.panel_set_location = new System.Windows.Forms.Button();
             this.ResName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroSetContextMenuStrip1 = new MetroSet_UI.Controls.MetroSetContextMenuStrip();
             this.menuStrip1.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.panel_mine.SuspendLayout();
@@ -49,7 +50,7 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(75, 34);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(75, 38);
             this.toolStripMenuItem2.Text = "主页";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -62,14 +63,14 @@
             this.我的ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1252, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1461, 42);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "文件";
             // 
             // 我的ToolStripMenuItem
             // 
             this.我的ToolStripMenuItem.Name = "我的ToolStripMenuItem";
-            this.我的ToolStripMenuItem.Size = new System.Drawing.Size(75, 34);
+            this.我的ToolStripMenuItem.Size = new System.Drawing.Size(75, 38);
             this.我的ToolStripMenuItem.Text = "我的";
             this.我的ToolStripMenuItem.Click += new System.EventHandler(this.我的ToolStripMenuItem_Click);
             // 
@@ -78,9 +79,9 @@
             this.panel_main.Controls.Add(this.panel_mine);
             this.panel_main.Controls.Add(this.panel_set_location);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(20, 98);
+            this.panel_main.Location = new System.Drawing.Point(20, 102);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1252, 674);
+            this.panel_main.Size = new System.Drawing.Size(1461, 858);
             this.panel_main.TabIndex = 3;
             // 
             // panel_mine
@@ -92,7 +93,7 @@
             this.panel_mine.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_mine.Location = new System.Drawing.Point(0, 0);
             this.panel_mine.Name = "panel_mine";
-            this.panel_mine.Size = new System.Drawing.Size(1252, 674);
+            this.panel_mine.Size = new System.Drawing.Size(1461, 858);
             this.panel_mine.TabIndex = 2;
             this.panel_mine.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -101,11 +102,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.Location = new System.Drawing.Point(115, 206);
+            this.dataGridView1.Location = new System.Drawing.Point(102, 206);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 72;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1024, 446);
+            this.dataGridView1.Size = new System.Drawing.Size(1037, 169);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -164,11 +165,22 @@
             this.Rate.Name = "Rate";
             this.Rate.Width = 175;
             // 
+            // metroSetContextMenuStrip1
+            // 
+            this.metroSetContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
+            this.metroSetContextMenuStrip1.IsDerivedStyle = true;
+            this.metroSetContextMenuStrip1.Name = "metroSetContextMenuStrip1";
+            this.metroSetContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.metroSetContextMenuStrip1.Style = MetroSet_UI.Enums.Style.Light;
+            this.metroSetContextMenuStrip1.StyleManager = null;
+            this.metroSetContextMenuStrip1.ThemeAuthor = "Narwin";
+            this.metroSetContextMenuStrip1.ThemeName = "MetroLite";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 792);
+            this.ClientSize = new System.Drawing.Size(1501, 980);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -201,5 +213,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ResName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
+        private MetroSet_UI.Controls.MetroSetContextMenuStrip metroSetContextMenuStrip1;
     }
 }
