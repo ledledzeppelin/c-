@@ -98,39 +98,26 @@ namespace 餐厅管理系统.controls
         private void ControlSubmit_Click(object sender, EventArgs e)
         {
             //提交自己的评论到数据库
-          
 
-            using (var context = new RestaurantDb())
+            if(bunifuTextBox1.Text == "")
             {
-                Review myReview = new Review
-                {
-                    UserId = _userName,
-                    RestaurantId = _restaurantId,
-                    Comment = _comment,
-                    Rating = _rate
-                };
-                // 调用 AddComment 方法将评论添加到数据库
-                ResInfo.AddCommentToDb(myReview);
+                MessageBox.Show("请添加评论后再点击提交");
             }
-            /**
-            // 更新评论区控件的内容 (并发？)
-            string nickName = ResInfo.GetUserNicknameByUserName(_userName);
-            // 
-            string parentDirectory = Directory.GetParent(Directory.GetParent(Application.StartupPath).FullName).FullName;
-            string defaultImagePath = Path.Combine(parentDirectory, "resources", "用户默认头像.png");
-            Image image = Image.FromFile(defaultImagePath);
-            using (var context = new UserDb())
+            else
             {
-                var userPic = context.Users
-                        .Where(u => u.Username == _userName)
-                        .Select(u => u.ProfilePicture)
-                        .FirstOrDefault();
-                if (userPic != null)
+                using (var context = new RestaurantDb())
                 {
-                    string imagePath = ResInfo.GetImagePath(userPic, 2);
-                    image = Image.FromFile(imagePath);
+                    Review myReview = new Review
+                    {
+                        UserId = _userName,
+                        RestaurantId = _restaurantId,
+                        Comment = _comment,
+                        Rating = _rate
+                    };
+                    // 调用 AddComment 方法将评论添加到数据库
+                    ResInfo.AddCommentToDb(myReview);
                 }
-            }*/
+            }
             AddComment(_nickName, _comment, _rate, _image);
         }
     }

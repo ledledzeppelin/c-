@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using 餐厅管理系统.data;
 
 namespace 餐厅管理系统
 {
@@ -15,9 +16,8 @@ namespace 餐厅管理系统
         public string ProfilePicture { get; set; } // 用二进制数据存储用户头像
         public string Location { get; set; } // 位置
 
-        // 构造函数、方法等
-
-        // 可以根据需要添加其他属性和方法
+        /*public int RestaurantId { get; set; }//收藏的餐厅
+        public Restaurant Restaurant { get; set; }*/
     }
 
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 餐厅管理系统.database;
+using 餐厅管理系统.util;
 using 餐厅管理系统.winForm;
 
 namespace 餐厅管理系统.controls
@@ -22,7 +23,7 @@ namespace 餐厅管理系统.controls
         private Image _image;
         private string _title;
         private string _address;
-        private double _rate;
+        private float _rate;
         // 记录餐厅id，为跳转到商家详情做准备
         private int _restaurantId;
         private string _userName;
@@ -42,10 +43,16 @@ namespace 餐厅管理系统.controls
             get { return _address; }
             set { _address = value; ControlResAddress.Text = value; }
         }
-        public double Rate
+        public float Rate
         {
             get { return _rate; }
-            set { _rate = value; ControlRate.Text = value.ToString(); }
+            set 
+            { 
+                _rate = value; 
+                ControlRate.Text = value.ToString();
+                // 显示星级图片
+                ResInfo.SetRatePicture(ControlRateImage, value);
+            }
         }
         public int RestaurantId
         {
@@ -58,12 +65,16 @@ namespace 餐厅管理系统.controls
 
 
         // 双击控件跳转到商家详情界面
+        public event EventHandler ResDetailDoubleClick;
         private void ResDetail_DoubleClick(object sender, EventArgs e)
         {
-            FormResDetailClient myform = new FormResDetailClient(_restaurantId, _userName);   // 调用带参的构造函数
+            //ResDetailDoubleClick?.Invoke(this, EventArgs.Empty);
+            FormResDetailClient myform = new FormResDetailClient(_restaurantId, _userName,_rate);   // 调用带参的构造函数
+            
             this.ParentForm.Hide();
             myform.ShowDialog();
             this.ParentForm.Dispose();
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bunifu.UI.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,23 +20,39 @@ namespace 餐厅管理系统.controls
             InitializeComponent();
         }
         private string _userName;
+        private string _nickName;
+        private Image _myProfileImage;
+        private string _address;
+
+        public string Address
+        {
+            set { _address = value; myInfo1.Address = value; }
+        }
+
         public string UserName
         {
             set { _userName = value; }
         }
-
-        private List<Restaurant> _restaurants;
+        public string NickName
+        {
+            set { _nickName = value; myInfo1.NickName = value; }
+        }
+        public Image MyProfileImage
+        {
+            get { return _myProfileImage; }
+            set { _myProfileImage = value; myInfo1.Image = value; }
+        }
 
         private void bunifuButtonMine_Click(object sender, EventArgs e)
         {
             bunifuPanelMain.Visible = false;
-            panelMine.Visible = true;
+            myInfo1.Visible = true;
         }
 
         private void bunifuButtonMain_Click(object sender, EventArgs e)
         {
             bunifuPanelMain.Visible = true;
-            panelMine.Visible = false;
+            myInfo1.Visible = false;
         }
         //初始化餐厅列表
         public void InitializeRes()
@@ -82,10 +99,15 @@ namespace 餐厅管理系统.controls
             resDetail.RestaurantId = restaurant.RestaurantId;
             resDetail.UserName = _userName;
             string imageFile = restaurant.ResPicture;
-            string filePath = ResInfo.GetImagePath(imageFile, 0);
-            Image image = Image.FromFile(filePath);
+            Image image = ResInfo.GetImage(imageFile, 0);
             resDetail.Image = image;
             flowLayoutPanel1.Controls.Add(resDetail);
+        }
+        // 初始化控件，显示“主页”隐藏“我的”
+        private void MainPanel_Load(object sender, EventArgs e)
+        {
+            bunifuPanelMain.Visible = true;
+            myInfo1.Visible = false;
         }
     }
 }

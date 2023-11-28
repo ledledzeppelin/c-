@@ -38,13 +38,11 @@
             this.bunifuButtonMain = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButtonMine = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuPanelMain = new Bunifu.UI.WinForms.BunifuPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.bunifuSearchButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.panelMine = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.myInfo1 = new 餐厅管理系统.controls.MyInfo();
             this.bunifuPanelMain.SuspendLayout();
-            this.panelMine.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuButtonMain
@@ -242,27 +240,14 @@
             this.bunifuPanelMain.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanelMain.BorderRadius = 3;
             this.bunifuPanelMain.BorderThickness = 1;
-            this.bunifuPanelMain.Controls.Add(this.panelMine);
-            this.bunifuPanelMain.Controls.Add(this.flowLayoutPanel1);
             this.bunifuPanelMain.Controls.Add(this.bunifuSearchButton);
             this.bunifuPanelMain.Controls.Add(this.bunifuTextBox1);
-            this.bunifuPanelMain.Location = new System.Drawing.Point(35, 84);
+            this.bunifuPanelMain.Controls.Add(this.flowLayoutPanel1);
+            this.bunifuPanelMain.Location = new System.Drawing.Point(35, 87);
             this.bunifuPanelMain.Name = "bunifuPanelMain";
             this.bunifuPanelMain.ShowBorders = true;
-            this.bunifuPanelMain.Size = new System.Drawing.Size(1280, 983);
+            this.bunifuPanelMain.Size = new System.Drawing.Size(1290, 980);
             this.bunifuPanelMain.TabIndex = 3;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 453);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1277, 530);
-            this.flowLayoutPanel1.TabIndex = 4;
-            this.flowLayoutPanel1.WrapContents = false;
             // 
             // bunifuSearchButton
             // 
@@ -271,6 +256,7 @@
             this.bunifuSearchButton.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bunifuSearchButton.ActiveForecolor = System.Drawing.Color.White;
             this.bunifuSearchButton.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuSearchButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bunifuSearchButton.BackColor = System.Drawing.SystemColors.Control;
             this.bunifuSearchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuSearchButton.BackgroundImage")));
             this.bunifuSearchButton.ButtonText = "搜索";
@@ -294,6 +280,7 @@
             // 
             this.bunifuTextBox1.AcceptsReturn = false;
             this.bunifuTextBox1.AcceptsTab = false;
+            this.bunifuTextBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bunifuTextBox1.AnimationSpeed = 200;
             this.bunifuTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -365,20 +352,27 @@
             this.bunifuTextBox1.UseSystemPasswordChar = false;
             this.bunifuTextBox1.WordWrap = true;
             // 
-            // panelMine
+            // flowLayoutPanel1
             // 
-            this.panelMine.Controls.Add(this.myInfo1);
-            this.panelMine.Location = new System.Drawing.Point(3, 3);
-            this.panelMine.Name = "panelMine";
-            this.panelMine.Size = new System.Drawing.Size(1262, 958);
-            this.panelMine.TabIndex = 5;
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 177);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1287, 803);
+            this.flowLayoutPanel1.TabIndex = 4;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // myInfo1
             // 
-            this.myInfo1.Location = new System.Drawing.Point(22, 27);
+            this.myInfo1.Image = null;
+            this.myInfo1.Location = new System.Drawing.Point(35, 87);
             this.myInfo1.Name = "myInfo1";
-            this.myInfo1.Size = new System.Drawing.Size(1222, 899);
-            this.myInfo1.TabIndex = 0;
+            this.myInfo1.NickName = null;
+            this.myInfo1.Size = new System.Drawing.Size(1290, 980);
+            this.myInfo1.TabIndex = 4;
             // 
             // MainPanel
             // 
@@ -387,10 +381,11 @@
             this.Controls.Add(this.bunifuPanelMain);
             this.Controls.Add(this.bunifuButtonMine);
             this.Controls.Add(this.bunifuButtonMain);
+            this.Controls.Add(this.myInfo1);
             this.Name = "MainPanel";
-            this.Size = new System.Drawing.Size(1346, 1095);
+            this.Size = new System.Drawing.Size(1364, 1125);
+            this.Load += new System.EventHandler(this.MainPanel_Load);
             this.bunifuPanelMain.ResumeLayout(false);
-            this.panelMine.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -403,7 +398,6 @@
         private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuSearchButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panelMine;
         private MyInfo myInfo1;
     }
 }

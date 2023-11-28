@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 餐厅管理系统.database;
+using 餐厅管理系统.util;
 
 namespace 餐厅管理系统.winForm
 {
@@ -18,6 +19,26 @@ namespace 餐厅管理系统.winForm
         {
             InitializeComponent();
             mainPanel1.UserName = userName;
+            using(var context = new UserDb())
+            {
+                string nickname = context.Users
+                    .Where(u => u.Username == userName)
+                    .Select(u => u.Nickname)
+                    .FirstOrDefault();
+                mainPanel1.NickName = nickname;
+                string imageName = context.Users
+                    .Where(u => u.Username == userName)
+                    .Select(u => u.ProfilePicture)
+                    .FirstOrDefault();
+                string address = context.Users
+                    .Where(u => u.Username == userName)
+                    .Select(u => u.Location)
+                    .FirstOrDefault();
+                // 用户头像
+                Image image = ResInfo.GetImage(imageName, 2);
+                mainPanel1.MyProfileImage = image;
+                mainPanel1.Address = address;
+            }
             mainPanel1.InitializeRes();
         }
 

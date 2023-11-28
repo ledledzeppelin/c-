@@ -343,6 +343,24 @@
     <Compile Include="controls\CommentPanel.Designer.cs">
       <DependentUpon>CommentPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="controls\DishDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\DishDetail.Designer.cs">
+      <DependentUpon>DishDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\DishDetailEditable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\DishDetailEditable.Designer.cs">
+      <DependentUpon>DishDetailEditable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\IconAndDiscription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\IconAndDiscription.Designer.cs">
+      <DependentUpon>IconAndDiscription.cs</DependentUpon>
+    </Compile>
     <Compile Include="controls\MainPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -354,6 +372,12 @@
     </Compile>
     <Compile Include="controls\MyInfo.Designer.cs">
       <DependentUpon>MyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\RecommendDish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\RecommendDish.Designer.cs">
+      <DependentUpon>RecommendDish.cs</DependentUpon>
     </Compile>
     <Compile Include="controls\ResDetail.cs">
       <SubType>UserControl</SubType>
@@ -386,6 +410,24 @@
     <Compile Include="winForm\Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="winForm\FormAddDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\FormAddDish.Designer.cs">
+      <DependentUpon>FormAddDish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="winForm\FormEditDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\FormEditDish.Designer.cs">
+      <DependentUpon>FormEditDish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="winForm\FormEditUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\FormEditUserInfo.Designer.cs">
+      <DependentUpon>FormEditUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="winForm\FormMainMetro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +439,12 @@
     </Compile>
     <Compile Include="winForm\FormMain_sub1.Designer.cs">
       <DependentUpon>FormMain_sub1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="winForm\FormMoreDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\FormMoreDish.Designer.cs">
+      <DependentUpon>FormMoreDish.cs</DependentUpon>
     </Compile>
     <Compile Include="winForm\FormResDetailClient.cs">
       <SubType>Form</SubType>
@@ -410,6 +458,12 @@
     <Compile Include="winForm\FormResEdit.Designer.cs">
       <DependentUpon>FormResEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="winForm\FormResMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\FormResMain.Designer.cs">
+      <DependentUpon>FormResMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="winForm\FormResRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,12 +475,6 @@
     </Compile>
     <Compile Include="winForm\FormAdministrator.Designer.cs">
       <DependentUpon>FormAdministrator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="winForm\FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="winForm\FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="winForm\FormUseRegister.cs">
       <SubType>Form</SubType>
@@ -449,11 +497,23 @@
     <EmbeddedResource Include="controls\CommentPanel.resx">
       <DependentUpon>CommentPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="controls\DishDetail.resx">
+      <DependentUpon>DishDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\DishDetailEditable.resx">
+      <DependentUpon>DishDetailEditable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\IconAndDiscription.resx">
+      <DependentUpon>IconAndDiscription.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="controls\MainPanel.resx">
       <DependentUpon>MainPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\MyInfo.resx">
       <DependentUpon>MyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\RecommendDish.resx">
+      <DependentUpon>RecommendDish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\ResDetail.resx">
       <DependentUpon>ResDetail.cs</DependentUpon>
@@ -461,17 +521,32 @@
     <EmbeddedResource Include="winForm\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormAddDish.resx">
+      <DependentUpon>FormAddDish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormEditDish.resx">
+      <DependentUpon>FormEditDish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormEditUserInfo.resx">
+      <DependentUpon>FormEditUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormMainMetro.resx">
       <DependentUpon>FormMainMetro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormMain_sub1.resx">
       <DependentUpon>FormMain_sub1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormMoreDish.resx">
+      <DependentUpon>FormMoreDish.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormResDetailClient.resx">
       <DependentUpon>FormResDetailClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormResEdit.resx">
       <DependentUpon>FormResEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormResMain.resx">
+      <DependentUpon>FormResMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormResRegister.resx">
       <DependentUpon>FormResRegister.cs</DependentUpon>
@@ -491,9 +566,6 @@
     </Compile>
     <EmbeddedResource Include="winForm\FormUseRegister.resx">
       <DependentUpon>FormUseRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="winForm\FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormAdministrator.resx">
       <DependentUpon>FormAdministrator.cs</DependentUpon>

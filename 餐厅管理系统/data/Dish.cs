@@ -15,7 +15,7 @@ namespace 餐厅管理系统.data
 
         public string DisPicture { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
        
         public Restaurant Restaurant { get; set; }
     }

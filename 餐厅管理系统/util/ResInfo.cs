@@ -12,6 +12,7 @@ using 餐厅管理系统;
 using 餐厅管理系统.data;
 using Microsoft.EntityFrameworkCore;
 using 餐厅管理系统.controls;
+using 餐厅管理系统.Properties;
 
 /*
  * 封装了一些显示餐厅信息的函数，
@@ -66,7 +67,7 @@ namespace 餐厅管理系统.util
             */
         }
 
-        //
+        // 根据餐厅id查询地址
         public static string GetAddress(int resId)
         {
             string add;
@@ -80,10 +81,55 @@ namespace 餐厅管理系统.util
             }
             return add;
         }
+        // 设置pictureBox的星级图片
+        public static void SetRatePicture(PictureBox pictureBox, float rate)
+        {
+            int _rate = (int)rate;
+            SetRatePicture(pictureBox, _rate);
+        }
+        public static void SetRatePicture(PictureBox pictureBox, int rate)
+        {
+            string picNameYellow = "评分-黄.png";
+            Image imageYellow = GetImage(picNameYellow, 3);
+            string picNameGray = "评分-灰.png";
+            Image imageGray = GetImage(picNameGray, 3);
+
+            int imageWidth = 100; // 设置每张图片的宽度
+            int totalWidth = imageWidth * 5;
+            // 创建一个新的 Bitmap 作为合并后的图片
+            Bitmap mergedImage = new Bitmap(totalWidth, imageWidth);
+
+            // 使用 Graphics 将所有图片合并到一个图像上
+            using (Graphics g = Graphics.FromImage(mergedImage))
+            {
+                int xCoordinate = 0;
+
+                for (int i = 0;i < rate;i++)
+                {
+                    // 在合并的图像上绘制当前图片
+                    g.DrawImage(imageYellow, xCoordinate, 0, imageWidth, imageWidth);
+                    // 更新下一个图片的 x 坐标
+                    xCoordinate += imageWidth;
+                }
+                for(int i = 0; i < (5 - rate); i++)
+                {
+                    // 在合并的图像上绘制当前图片
+                    g.DrawImage(imageGray, xCoordinate, 0, imageWidth, imageWidth);
+                    // 更新下一个图片的 x 坐标
+                    xCoordinate += imageWidth;
+                }
+            }
+            pictureBox.Image = mergedImage;
+        }
+
 
         /*
         *返回图片路径
-        * 参数 mod 0-返回餐厅图片路径  1-返回菜品图片路径   2-返回用户头像图片路径
+        * 参数 mod 
+        * 0-返回餐厅图片路径  
+        * 1-返回菜品图片路径   
+        * 2-返回用户头像图片路径
+        * 3-返回resources文件中的图片路径
         */
         public static string GetImagePath(string fileName, int mod)
         {
@@ -104,14 +150,23 @@ namespace 餐厅管理系统.util
                 case 2:
                     imagePath = Path.Combine(parentDirectory, "image", "userImage", fileName);
                     break;
+                case 3:
+                    imagePath = Path.Combine(parentDirectory, "resources", fileName);
+                    break;
 
                 default: return null;
             }
             return imagePath;
         }
+        public static Image GetImage(string fileName,int mod) 
+        {
+            string imagePath = GetImagePath(fileName, mod);
+            Image image = Image.FromFile(imagePath);
+            return image;
+        }
 
         // 向某个餐厅添加菜品
-        public static void AddDishForRestaurant(int dishId, string dishName, string disPicture, decimal price, int restaurantId)
+        public static void AddDishForRestaurant(int dishId, string dishName, string disPicture, double price, int restaurantId)
         {
             using (RestaurantDb db = new RestaurantDb())
             {
@@ -149,61 +204,7 @@ namespace 餐厅管理系统.util
                 restaurantDb.Dispose();
             }
         }
-        // 在 FormResDetailClient初始化网友评论 
-        /*public static void LoadUserReviews(int resId,)
-        {
-            // 获取用户评价数据，这里假设有一个 UserReview 类存储评价信息
-            List<Review> userReviews = GetRestaurantUserReviews(resId);
-
-            // 清空现有的用户评价控件
-            metroFlowLayoutPanelReviews.Controls.Clear();
-
-            // 创建并添加 MetroUserReviewControl 控件
-            foreach (UserReview review in userReviews)
-            {
-                MetroUserReviewControl reviewControl = new MetroUserReviewControl(
-                    review.UserName,
-                    review.ReviewContent,
-                    review.UserImage,
-                    review.ReviewImage);
-
-                metroFlowLayoutPanelReviews.Controls.Add(reviewControl);
-            }
-        }*/
-
-        /*private static List<Review> GetRestaurantUserReviews(int resId)
-        {
-            using (var context = new ReviewDb())
-            {
-                // 根据 RestaurantId 查询所有评论
-                var reviews = context.Reviews
-                    .Where(r => r.RestaurantId == resId)
-                    .ToList();
-
-                // 转换成 UserReview 对象
-                var userReviews = reviews.Select(r => new Review
-                {
-                    UserName = r.UserId,  // 这里假设 UserId 就是用户名
-                    ReviewContent = r.Comment,
-                    Rating = r.Rating,
-                    // 添加其他需要的属性...
-                }).ToList();
-
-                return userReviews;
-            }*/
-
-        /*public static List<Dish> GetDishesForRestaurant(int restaurantId)
-        {
-            using (var context = new DishDb())
-            {
-                // 根据 RestaurantId 查找所有相关的 Dish
-                var dishesForRestaurant = context.Dishes
-                    .Where(d => d.RestaurantId == restaurantId)
-                    .ToList();
-
-                return dishesForRestaurant;
-            }
-        }*/
+        
         // 用户提交评论到数据库
         public static void AddCommentToDb(Review myReview)
         {

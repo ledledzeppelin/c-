@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 餐厅管理系统.winForm;
 
 namespace 餐厅管理系统.controls
 {
@@ -17,6 +18,40 @@ namespace 餐厅管理系统.controls
             InitializeComponent();
         }
 
-       
+        // 需要头像，昵称
+        private Image _image;
+        private string _nickName;
+        private string _address;
+
+        public string Address
+        {
+            set { _address = value; bunifuLabel4.Text = value; }
+        }
+        public Image Image
+        {
+            get { return _image; }
+            set { _image = value; pictureBox1.Image = value; }
+        }
+        public string NickName
+        {
+            get { return _nickName; }
+            set { _nickName = value; LabelNickName.Text = value; }
+        }
+
+        private void bunifuButton_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            FormEditUserInfo myForm = new FormEditUserInfo(_nickName, _image, _address);
+            myForm.ShowDialog();
+        }
     }
 }

@@ -94,6 +94,7 @@
             this.ControlRateImage.Location = new System.Drawing.Point(273, 106);
             this.ControlRateImage.Name = "ControlRateImage";
             this.ControlRateImage.Size = new System.Drawing.Size(162, 33);
+            this.ControlRateImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ControlRateImage.TabIndex = 3;
             this.ControlRateImage.TabStop = false;
             // 

@@ -22,8 +22,6 @@ namespace 餐厅管理系统
         public FormLogin()
         {
             InitializeComponent();
-            // 设置 Modern UI 主题
-            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -65,7 +63,7 @@ namespace 餐厅管理系统
 
                         if (user != null)
                         {
-                            FormMain myform = new FormMain(username);   // 调用带参的构造函数
+                            FormMainMetro myform = new FormMainMetro(username);   // 调用带参的构造函数
                             this.Hide();
                             myform.ShowDialog();
                             this.Dispose();
@@ -86,7 +84,7 @@ namespace 餐厅管理系统
 
                     if (user != null)
                     {
-                        FormResEdit myform = new FormResEdit(user);   // 调用带参的构造函数
+                        FormResMain myform = new FormResMain(user);   // 调用带参的构造函数
                         this.Hide();
                         myform.ShowDialog();
                         this.Dispose();
@@ -143,7 +141,7 @@ namespace 餐厅管理系统
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            FormMain form4 = new FormMain("1");
+            FormMainMetro form4 = new FormMainMetro("1");
             this.Hide();
             form4.ShowDialog();
             this.Dispose();

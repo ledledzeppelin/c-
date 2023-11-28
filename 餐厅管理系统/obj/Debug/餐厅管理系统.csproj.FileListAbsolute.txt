@@ -264,6 +264,7 @@ D:\餐厅管理\c-finally-work\餐厅管理系统\bin\Debug\System.Threading.Tas
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.csproj.AssemblyReference.cache
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.CommentControl.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.CommentPanel.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.IconAndDiscription.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.MainPanel.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.MyInfo.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.ResDetail.resources
@@ -276,7 +277,6 @@ D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.F
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.FormLogin.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.Properties.Resources.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.FormUseRegister.resources
-D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.FormMain.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.FormAdministrator.resources
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.csproj.GenerateResource.cache
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.csproj.CoreCompileInputs.cache
@@ -284,3 +284,11 @@ D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.c
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.csproj.CopyComplete
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.exe
 D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.pdb
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.winForm.FormResMain.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.RecommendDish.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.winForm.FormMoreDish.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.DishDetail.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.winForm.FormEditUserInfo.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.winForm.FormAddDish.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.winForm.FormEditDish.resources
+D:\餐厅管理\c-finally-work\餐厅管理系统\obj\Debug\餐厅管理系统.controls.DishDetailEditable.resources
