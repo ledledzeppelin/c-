@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 餐厅管理系统.data;
 using 餐厅管理系统.database;
+using 餐厅管理系统.util;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace 餐厅管理系统
@@ -47,30 +48,33 @@ namespace 餐厅管理系统
                 // 获取当前应用程序的上级目录，用于保存图片
                 DirectoryInfo pname = new DirectoryInfo(Application.StartupPath);
                 string filename = pname.Parent.Parent.FullName;
-
-                // 如果上传了图片
-                if (isUpLoadPicture)
+                if (ResInfo.ValidatePassword(textBox3.Text))
                 {
-                    // 设置餐厅图片的名字:以系统当前时间毫秒来命名
-                    string resImageName = textBox1.Text + "商家图片." + empUpLoadPictureFormat;
+                    // 如果上传了图片
+                    if (isUpLoadPicture)
+                    {
+                        // 设置餐厅图片的名字:以系统当前时间毫秒来命名
+                        string resImageName = textBox1.Text + "商家图片." + empUpLoadPictureFormat;
 
-                    // 将上传的图片复制到指定目录
-                    File.Copy(openFileDialog1.FileName, filename + "\\image\\restaurantimage\\" + resImageName);
+                        // 将上传的图片复制到指定目录
+                        File.Copy(openFileDialog1.FileName, filename + "\\image\\restaurantimage\\" + resImageName);
 
-                    // 创建餐厅对象并设置属性
-                    ResApply restaurant = new ResApply();
-                    restaurant.Name = textBox1.Text;
-                    restaurant.Account = textBox2.Text;
-                    restaurant.Password = textBox3.Text;
-                    restaurant.Address = textBox4.Text;
-                    restaurant.ResPicture = resImageName;
+                        // 创建餐厅对象并设置属性
+                        ResApply restaurant = new ResApply();
+                        restaurant.Name = textBox1.Text;
+                        restaurant.Account = textBox2.Text;
+                        restaurant.Password = textBox3.Text;
+                        restaurant.Address = textBox4.Text;
+                        restaurant.ResPicture = resImageName;
 
-                    // 将餐厅信息添加到数据库
-                    db.AddResApply(restaurant);
+                        // 将餐厅信息添加到数据库
+                        db.AddResApply(restaurant);
 
-                    // 显示申请已提交消息
-                    MessageBox.Show("申请已提交，请耐心等待");
+                        // 显示申请已提交消息
+                        MessageBox.Show("申请已提交，请耐心等待");
+                    }
                 }
+                else { MessageBox.Show("密码至少要包含数字和字母");a }
             }
             catch (Exception ex)
             {

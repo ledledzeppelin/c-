@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using 餐厅管理系统.database;
+using 餐厅管理系统.util;
 
 namespace 餐厅管理系统
 {
@@ -20,6 +21,8 @@ namespace 餐厅管理系统
         {
             InitializeComponent();
         }
+
+        ResInfo ResInfo = new ResInfo();
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -42,29 +45,32 @@ namespace 餐厅管理系统
                 {
                     // 设置用户对象的邮箱
                     newuser.Username = textBox2.Text;
-
-                    // 检查密码是否不为空且与确认密码一致
-                    if (!string.IsNullOrEmpty(textBox3.Text) && textBox3.Text == textBox4.Text)
+                    if (ResInfo.ValidatePassword(textBox3.Text))
                     {
-                        // 设置用户对象的密码
-                        newuser.Password = textBox3.Text;
-                        newuser.Location=textBox5.Text;
-
-                        // 创建 UserDb 对象用于数据库操作
-                        using (UserDb udb = new UserDb())
+                        // 检查密码是否不为空且与确认密码一致
+                        if (!string.IsNullOrEmpty(textBox3.Text) && textBox3.Text == textBox4.Text)
                         {
-                            // 调用 UserDb 中的 AddUser 方法将新用户添加到数据库
-                            udb.AddUser(newuser);
+                            // 设置用户对象的密码
+                            newuser.Password = textBox3.Text;
+                            newuser.Location = textBox5.Text;
 
-                            // 显示注册成功消息
-                            MessageBox.Show("注册成功");
+                            // 创建 UserDb 对象用于数据库操作
+                            using (UserDb udb = new UserDb())
+                            {
+                                // 调用 UserDb 中的 AddUser 方法将新用户添加到数据库
+                                udb.AddUser(newuser);
+
+                                // 显示注册成功消息
+                                MessageBox.Show("注册成功");
+                            }
+                        }
+                        else
+                        {
+                            // 显示密码与确认密码不一致的错误消息
+                            MessageBox.Show("密码与确认密码不一致");
                         }
                     }
-                    else
-                    {
-                        // 显示密码与确认密码不一致的错误消息
-                        MessageBox.Show( "密码与确认密码不一致");
-                    }
+                    else { MessageBox.Show("密码至少要包含密码和数字"); }
                 }
                 else
                 {

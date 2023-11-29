@@ -13,6 +13,7 @@ using 餐厅管理系统.data;
 using Microsoft.EntityFrameworkCore;
 using 餐厅管理系统.controls;
 using 餐厅管理系统.Properties;
+using System.Text.RegularExpressions;
 
 /*
  * 封装了一些显示餐厅信息的函数，
@@ -163,6 +164,12 @@ namespace 餐厅管理系统.util
             string imagePath = GetImagePath(fileName, mod);
             Image image = Image.FromFile(imagePath);
             return image;
+        }
+
+        public static bool ValidatePassword(string a)
+        {
+            string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+            return Regex.IsMatch(a, pattern);
         }
 
         // 向某个餐厅添加菜品
