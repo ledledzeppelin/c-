@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Form.Page.UserMain.UserMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Form.Page.UserMain"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             mc:Ignorable="d" 
+             d:DesignHeight="1450" d:DesignWidth="1000">
+    <Grid Background="White" Margin="0,160,0,0">
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center"  >
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Width="700">
+                <ComboBox Width="130" Name="cmbType" hc:TitleElement.TitlePlacement="Left"  Style="{StaticResource ComboBoxExtend}"  Margin="0,0,0,0">
+                    <ComboBoxItem Content="综合"/>
+                    <ComboBoxItem Content="距离"/>
+                    <ComboBoxItem Content="星级"/>
+                </ComboBox>
+                <TextBox Width="400" Name="txtCtx" Margin="10,0,10,0" hc:TitleElement.HorizontalAlignment="Right" hc:TitleElement.TitlePlacement="Left"  Style="{StaticResource TextBoxExtend}"  />
+                <Button Content="搜索" IsDefault="True" Margin="0,0,0,0" Width="70" Style="{StaticResource ButtonPrimary}" Click="Button_Click" />
+                <Button Content="定位" IsDefault="True" Margin="10,0,0,0" Width="70" Style="{StaticResource ButtonPrimary}" Click="Location" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Margin="0,10,0,0">
+                <DataGrid Width="700" Height="300" Name="dgRes" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="图片" Width="200" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Height="40"  Source="{Binding ResPicture}"  />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="餐厅" Binding="{Binding Name}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="星级" Binding="{Binding Rate}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="操作" Width="100" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource ButtonSuccess.Small}" Height="25" Content="查看详情" Click="Detail" CommandParameter="{Binding}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

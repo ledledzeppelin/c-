@@ -1,0 +1,40 @@
+﻿<Window x:Class="Form.Page.DishDetail.DishDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Form.Page.DishDetail"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource StandWindowStyle}"
+        xmlns:s="https://github.com/canton7/Stylet"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Width="650" Height="350"
+        xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding">
+    <Grid x:Name="grdMain">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="菜品信息" FontWeight="Bold" VerticalAlignment="Top" FontSize="18"  Margin="20,10" Grid.Column="0"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"
+                            TextBlock.Foreground="#FF6590C1" Grid.ColumnSpan="2">
+            <TextBlock Text="&#xe680;" FontFamily="{StaticResource Iconfont}" FontSize="20" Margin="0,0,26,0" VerticalAlignment="Center"/>
+            <TextBlock Text="&#xe67f;" FontFamily="{StaticResource Iconfont}" FontSize="17" Margin="0,0,24,0" VerticalAlignment="Center"/>
+            <TextBlock Text="&#xe682;" FontFamily="{StaticResource Iconfont}" FontSize="22" Margin="0,0,10,0" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+                <TextBox Width="280" Name="txtName" hc:InfoElement.Title="菜品名称：" hc:TitleElement.TitleWidth="100" hc:TitleElement.HorizontalAlignment="Right" hc:TitleElement.TitlePlacement="Left"  Style="{StaticResource TextBoxExtend}"  Margin="0,5,0,0"/>
+                <TextBox Width="280" Name="txtPrice" hc:InfoElement.Title="菜品价格：" hc:TitleElement.TitleWidth="100"  hc:TitleElement.HorizontalAlignment="Right"  hc:TitleElement.TitlePlacement="Left"  Style="{StaticResource TextBoxExtend}"  Margin="0,25,0,0"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Margin="10,0,0,0">
+                <hc:ImageViewer Background="{DynamicResource SecondaryRegionBrush}" MaxWidth="300" Height="250" Name="igv"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

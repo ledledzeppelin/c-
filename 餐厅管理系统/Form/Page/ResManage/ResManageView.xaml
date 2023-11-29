@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Form.Page.ResManage.ResManageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Form.Page.ResManage"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             mc:Ignorable="d" >
+    <Grid Background="White" Margin="0,10,0,0">
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center"  >
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="750" Margin="0,15,0,0">
+                <DataGrid Width="750" Height="540" x:Name="dgdMenu" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="图片" Width="80" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Height="40"  Source="{Binding ResPicture}"  />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="餐厅名称" Binding="{c:Binding Name}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="餐厅账号" Binding="{c:Binding Account}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="餐厅地址" Binding="{c:Binding Address}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="菜品评分" Binding="{Binding Rate,StringFormat={}{0:N2}}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="操作" Width="300" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource ButtonSuccess.Small}" Height="25" Content="查看详情" Click="Detail" CommandParameter="{Binding}" />
+                                        <Button Style="{StaticResource ButtonDanger.Small}" Height="25" Margin="10,0,0,0" Content="删除" Click="Delete" CommandParameter="{Binding}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
