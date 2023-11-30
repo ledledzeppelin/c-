@@ -74,7 +74,7 @@ namespace 餐厅管理系统
                         MessageBox.Show("申请已提交，请耐心等待");
                     }
                 }
-                else { MessageBox.Show("密码至少要包含数字和字母");a }
+                else { MessageBox.Show("密码至少要包含数字和字母"); }
             }
             catch (Exception ex)
             {

@@ -37,19 +37,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(238, 89);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(173, 64);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1153, 1092);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(839, 780);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
             // FormMoreDish
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1392, 1180);
+            this.ClientSize = new System.Drawing.Size(1012, 787);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMoreDish";
+            this.Padding = new System.Windows.Forms.Padding(15, 43, 15, 14);
+            this.Load += new System.EventHandler(this.FormMoreDish_Load);
             this.ResumeLayout(false);
 
         }

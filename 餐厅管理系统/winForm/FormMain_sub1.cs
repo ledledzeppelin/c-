@@ -32,5 +32,10 @@ namespace 餐厅管理系统.winForm
         {
             _instance = null;
         }
+
+        private void FormMain_sub1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

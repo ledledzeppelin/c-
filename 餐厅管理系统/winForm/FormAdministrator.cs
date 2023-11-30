@@ -200,7 +200,10 @@ namespace 餐厅管理系统
             }
         }
 
-        
+        private void FormAdministrator_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

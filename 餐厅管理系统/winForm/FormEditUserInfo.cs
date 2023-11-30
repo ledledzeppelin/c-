@@ -54,5 +54,10 @@ namespace 餐厅管理系统.winForm
         {
 
         }
+
+        private void FormEditUserInfo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

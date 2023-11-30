@@ -123,6 +123,10 @@ namespace 餐厅管理系统.winForm
             FormAddDish formAddDish = new FormAddDish(res.RestaurantId,res.Name,this);
             formAddDish.Show();
         }
-       
+
+        private void FormResMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

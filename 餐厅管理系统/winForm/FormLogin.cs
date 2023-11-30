@@ -14,6 +14,7 @@ using MetroFramework.Forms;
 using MetroFramework.Components;
 using MetroSet_UI.Forms;
 using 餐厅管理系统.winForm;
+using 餐厅管理系统.util;
 
 namespace 餐厅管理系统
 {
@@ -55,51 +56,52 @@ namespace 餐厅管理系统
             {
                 string username = textBox3.Text;
                 string password = textBox4.Text;
+                ILoginStrategy loginStrategy = null;
+
                 if (comboBox1.SelectedIndex == 0)
                 {
-                    using (var context = new UserDb())
-                    {
-                        var user = context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
-
-                        if (user != null)
-                        {
-                            FormMainMetro myform = new FormMainMetro(username);   // 调用带参的构造函数
-                            this.Hide();
-                            myform.ShowDialog();
-                            this.Dispose();
-                        }
-                        else
-                        {
-                            // 用户验证失败，显示错误消息
-                            MessageBox.Show("登录失败。请检查用户名和密码。");
-                        }
-                    }
+                    loginStrategy = new UserLoginStrategy();
                 }
                 else
                 {
-                    var context = new RestaurantDb();
-                    var con = new RestaurantDb();
-                    var user = context.Restaurants.FirstOrDefault(u => u.Account == username && u.Password == password);
-                    var apply = con.ResApplys.FirstOrDefault(u => u.Account == username && u.Password == password);
+                    loginStrategy = new RestaurantLoginStrategy();
+                }
 
-                    if (user != null)
+                bool isValidUser = loginStrategy.Validate(username, password);
+
+                if (isValidUser)
+                {
+                    if (loginStrategy is UserLoginStrategy)
                     {
-                        FormResMain myform = new FormResMain(user);   // 调用带参的构造函数
+                        FormMainMetro myform = new FormMainMetro(username);
                         this.Hide();
                         myform.ShowDialog();
                         this.Dispose();
                     }
-                    else if (apply != null)
+                    else if (loginStrategy is RestaurantLoginStrategy)
                     {
-                        MessageBox.Show("注册申请尚未审核，请耐心等待");
+                        var context = new RestaurantDb();
+                        var apply = context.ResApplys.FirstOrDefault(u => u.Account == username && u.Password == password);
+                        var user = context.Restaurants.FirstOrDefault(u => u.Account == username && u.Password == password);
+                        if (apply != null)
+                        {
+                            MessageBox.Show("注册申请尚未审核，请耐心等待");
+                        }
+                        else if(user!=null)
+                        {
+                            FormResMain myform = new FormResMain(user);
+                            this.Hide();
+                            myform.ShowDialog();
+                            this.Dispose();
+                        }
+                        else { MessageBox.Show("尚未注册账户，请先注册"); }
+
+                        context.Dispose();
                     }
-                    else
-                    {
-                        MessageBox.Show("尚未注册账户，请先注册");
-                    }
-                    //释放连接
-                    context.Dispose();
-                    con.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("登录失败。请检查用户名和密码。");
                 }
             }
             catch (Exception ex)
@@ -107,6 +109,7 @@ namespace 餐厅管理系统
                 MessageBox.Show($"发生错误: {ex.Message}");
             }
         }
+
 
         private void button5_Click(object sender, EventArgs e)
         {

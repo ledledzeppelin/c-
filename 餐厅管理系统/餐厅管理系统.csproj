@@ -402,6 +402,7 @@
     </Compile>
     <Compile Include="Migrations\UserDbMigrations\UserDbModelSnapshot.cs" />
     <Compile Include="util\Address.cs" />
+    <Compile Include="util\ILoginStrategy.cs" />
     <Compile Include="util\Location.cs" />
     <Compile Include="util\ResInfo.cs" />
     <Compile Include="winForm\Form3.cs">

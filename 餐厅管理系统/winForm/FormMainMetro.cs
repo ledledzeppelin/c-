@@ -46,5 +46,10 @@ namespace 餐厅管理系统.winForm
         {
            
         }
+
+        private void mainPanel1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
