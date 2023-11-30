@@ -7,7 +7,7 @@ using 餐厅管理系统.data;
 
 namespace 餐厅管理系统
 {
-    internal class User
+    public class User
     {
         public int Id { get; set; } // 用户的唯一标识
         public string Username { get; set; } // 账号

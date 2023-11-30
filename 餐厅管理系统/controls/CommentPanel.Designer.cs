@@ -34,12 +34,18 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.ControlImage = new System.Windows.Forms.PictureBox();
             this.ControlNickName = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ControlMyComment = new System.Windows.Forms.Label();
             this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.ControlSubmit = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.LabelRate = new Bunifu.UI.WinForms.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ControlImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +56,7 @@
             this.ControlImage.Location = new System.Drawing.Point(36, 35);
             this.ControlImage.Name = "ControlImage";
             this.ControlImage.Size = new System.Drawing.Size(94, 88);
+            this.ControlImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ControlImage.TabIndex = 1;
             this.ControlImage.TabStop = false;
             // 
@@ -260,10 +267,103 @@
             this.ControlSubmit.UseDefaultRadiusAndThickness = true;
             this.ControlSubmit.Click += new System.EventHandler(this.ControlSubmit_Click);
             // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel1.Location = new System.Drawing.Point(234, 151);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(81, 36);
+            this.bunifuLabel1.TabIndex = 7;
+            this.bunifuLabel1.Text = "评分：";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // LabelRate
+            // 
+            this.LabelRate.AcceptsReturn = false;
+            this.LabelRate.AcceptsTab = false;
+            this.LabelRate.AnimationSpeed = 200;
+            this.LabelRate.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.LabelRate.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.LabelRate.AutoSizeHeight = true;
+            this.LabelRate.BackColor = System.Drawing.Color.Transparent;
+            this.LabelRate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LabelRate.BackgroundImage")));
+            this.LabelRate.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.LabelRate.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.LabelRate.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.LabelRate.BorderColorIdle = System.Drawing.Color.Silver;
+            this.LabelRate.BorderRadius = 1;
+            this.LabelRate.BorderThickness = 1;
+            this.LabelRate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.LabelRate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LabelRate.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.LabelRate.DefaultText = "";
+            this.LabelRate.FillColor = System.Drawing.Color.White;
+            this.LabelRate.HideSelection = true;
+            this.LabelRate.IconLeft = null;
+            this.LabelRate.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.LabelRate.IconPadding = 10;
+            this.LabelRate.IconRight = null;
+            this.LabelRate.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.LabelRate.Lines = new string[0];
+            this.LabelRate.Location = new System.Drawing.Point(306, 151);
+            this.LabelRate.MaxLength = 32767;
+            this.LabelRate.MinimumSize = new System.Drawing.Size(1, 1);
+            this.LabelRate.Modified = false;
+            this.LabelRate.Multiline = false;
+            this.LabelRate.Name = "LabelRate";
+            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.LabelRate.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.LabelRate.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.LabelRate.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Silver;
+            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.LabelRate.OnIdleState = stateProperties8;
+            this.LabelRate.Padding = new System.Windows.Forms.Padding(3);
+            this.LabelRate.PasswordChar = '\0';
+            this.LabelRate.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.LabelRate.PlaceholderText = "Enter text";
+            this.LabelRate.ReadOnly = false;
+            this.LabelRate.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.LabelRate.SelectedText = "";
+            this.LabelRate.SelectionLength = 0;
+            this.LabelRate.SelectionStart = 0;
+            this.LabelRate.ShortcutsEnabled = true;
+            this.LabelRate.Size = new System.Drawing.Size(125, 41);
+            this.LabelRate.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.LabelRate.TabIndex = 8;
+            this.LabelRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.LabelRate.TextMarginBottom = 0;
+            this.LabelRate.TextMarginLeft = 3;
+            this.LabelRate.TextMarginTop = 1;
+            this.LabelRate.TextPlaceholder = "Enter text";
+            this.LabelRate.UseSystemPasswordChar = false;
+            this.LabelRate.WordWrap = true;
+            this.LabelRate.TextChange += new System.EventHandler(this.LabelRate_TextChange);
+            // 
             // CommentPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LabelRate);
+            this.Controls.Add(this.bunifuLabel1);
             this.Controls.Add(this.ControlSubmit);
             this.Controls.Add(this.bunifuTextBox1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -274,6 +374,7 @@
             this.Size = new System.Drawing.Size(1292, 506);
             ((System.ComponentModel.ISupportInitialize)(this.ControlImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -285,5 +386,7 @@
         private System.Windows.Forms.Label ControlMyComment;
         private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton ControlSubmit;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
+        private Bunifu.UI.WinForms.BunifuTextBox LabelRate;
     }
 }

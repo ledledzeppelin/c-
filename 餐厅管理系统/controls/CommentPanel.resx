@@ -726,4 +726,16 @@
         eAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 11.14286pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
+  </data>
+  <data name="LabelRate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAH0AAAApCAYAAAAYnybEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAACXSURBVHhe7dGxCQMxAARB9V+VHpXhMlyAH4ESt6CdhUsu
+        naFoa63PnPNnd287H/Ix9qH7286HHHol6MGgB4MeDHow6MGgB4MeDHow6MGgB4MeDHow6MGgB4MeDHow
+        6MGgB4MeDHow6MGgB4MeDHow6MGgB4MeDHow6MGgB4MeDHow6MGgB4Me7A/9eZ7vPuzubedDrlZjvJVC
+        wMyWZ3+7AAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

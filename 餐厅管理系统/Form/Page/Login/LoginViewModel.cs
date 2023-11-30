@@ -76,9 +76,9 @@ namespace Form.Page.Login
                 {
                     UserType = "餐厅";
                     var context = new RestaurantDb();
-                    var con = new ApplyDb();
+                   // var con = new ApplyDb();
                     var user = context.Restaurants.FirstOrDefault(u => u.Account == username && u.Password == password);
-                    var apply = con.ResApplys.FirstOrDefault(u => u.Account == username && u.Password == password);
+                    var apply = context.ResApplys.FirstOrDefault(u => u.Account == username && u.Password == password);
                     if (user != null)
                     {
                         Restaurant = user;
@@ -97,7 +97,7 @@ namespace Form.Page.Login
                     }
                     //释放连接
                     context.Dispose();
-                    con.Dispose();
+                    //con.Dispose();
                 }
             }
             catch (Exception ex)

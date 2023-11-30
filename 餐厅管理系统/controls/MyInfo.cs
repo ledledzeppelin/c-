@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 餐厅管理系统.util;
 using 餐厅管理系统.winForm;
 
 namespace 餐厅管理系统.controls
@@ -22,7 +23,11 @@ namespace 餐厅管理系统.controls
         private Image _image;
         private string _nickName;
         private string _address;
-
+        private string _userName;
+        public string UserName
+        {
+            set { _userName = value; }
+        }
         public string Address
         {
             set { _address = value; bunifuLabel4.Text = value; }
@@ -50,8 +55,13 @@ namespace 餐厅管理系统.controls
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            FormEditUserInfo myForm = new FormEditUserInfo(_nickName, _image, _address);
-            myForm.ShowDialog();
+            /**工厂模式
+             * 选择修改用户信息的工厂
+             */
+            EditInfoFactory factory = new EditUserInfoFactory();
+            // 使用工厂类创建产品
+            IEditInfo editInfo = factory.CreateEditInfo();
+            editInfo.Edit(_userName, _nickName, _image, _address);
         }
     }
 }

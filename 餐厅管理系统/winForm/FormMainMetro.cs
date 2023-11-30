@@ -19,6 +19,7 @@ namespace 餐厅管理系统.winForm
         {
             InitializeComponent();
             mainPanel1.UserName = userName;
+            
             using(var context = new UserDb())
             {
                 string nickname = context.Users
@@ -41,10 +42,10 @@ namespace 餐厅管理系统.winForm
             }
             mainPanel1.InitializeRes();
         }
-
-        private void mainPanel1_Load(object sender, EventArgs e)
+        //刷新用户头像
+       public void RefreshUserProfile(Image image)
         {
-           
+            mainPanel1.RefreshUserProfile(image);
         }
     }
 }

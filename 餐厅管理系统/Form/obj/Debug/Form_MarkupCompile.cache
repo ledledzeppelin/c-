@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Users\CsharpCodes\餐厅管理系统\Form\obj\Debug\
+D:\餐厅管理\wpf界面第一次更新\c-finally-work\餐厅管理系统\Form\obj\Debug\
 Form
 none
 false
 DEBUG;TRACE
-D:\Users\CsharpCodes\餐厅管理系统\Form\App.xaml
+D:\餐厅管理\wpf界面第一次更新\c-finally-work\餐厅管理系统\Form\App.xaml
 14-583322312
 
 202128076612
-45821483744
+45565593242
 Control\MenuItem.xaml;Page\AddDishWindow\AddDishWndView.xaml;Page\AddDish\AddDishView.xaml;Page\DishDetail\DishDetailView.xaml;Page\DishManage\DishManageView.xaml;Page\Login\LoginView.xaml;Page\MainMenu\MainMenuView.xaml;Page\ResDetail\ResDetailView.xaml;Page\ResManage\ResManageView.xaml;Page\ReviewManage\ReviewManageView.xaml;Page\UserMain\UserMainView.xaml;Page\UserManage\UserManageView.xaml;Style\CustomStyle.xaml;Style\StandardStyle.xaml;
 
-False
+True
 

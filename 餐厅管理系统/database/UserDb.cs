@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace 餐厅管理系统.database
 {
-    internal class UserDb: DbContext
+    public class UserDb: DbContext
     {
 
 

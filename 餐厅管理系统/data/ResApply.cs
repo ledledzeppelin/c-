@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace 餐厅管理系统.data
 {
-    internal class ResApply
+    public class ResApply
     {
         public int ResApplyId { get; set; }
 

@@ -9,7 +9,7 @@ using 餐厅管理系统.data;
 
 namespace 餐厅管理系统.database
 {
-    internal class RestaurantDb:DbContext
+    public class RestaurantDb:DbContext
     {
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

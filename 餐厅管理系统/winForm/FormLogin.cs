@@ -146,6 +146,7 @@ namespace 餐厅管理系统
             form4.ShowDialog();
             this.Dispose();
         }
+
     }
  
 }

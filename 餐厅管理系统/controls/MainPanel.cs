@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 餐厅管理系统.database;
 using 餐厅管理系统.util;
+using 餐厅管理系统.winForm;
 
 namespace 餐厅管理系统.controls
 {
@@ -19,11 +20,15 @@ namespace 餐厅管理系统.controls
         {
             InitializeComponent();
         }
+        private FormMainMetro _formMainMetro;
         private string _userName;
         private string _nickName;
         private Image _myProfileImage;
         private string _address;
-
+        public FormMainMetro FormMainMetro
+        {
+            set { _formMainMetro = value; }
+        }
         public string Address
         {
             set { _address = value; myInfo1.Address = value; }
@@ -31,7 +36,7 @@ namespace 餐厅管理系统.controls
 
         public string UserName
         {
-            set { _userName = value; }
+            set { _userName = value; myInfo1.UserName = value; }
         }
         public string NickName
         {
@@ -108,6 +113,11 @@ namespace 餐厅管理系统.controls
         {
             bunifuPanelMain.Visible = true;
             myInfo1.Visible = false;
+        }
+        // 刷新头像
+        public void RefreshUserProfile(Image image)
+        {
+            myInfo1.Image = image;
         }
     }
 }

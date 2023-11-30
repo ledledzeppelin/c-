@@ -24,18 +24,20 @@ namespace 餐厅管理系统.controls
          * 等待用户输入的属性
          */
         private string _comment;
-        private int _rate = 5;
+        private int _rate;
         /**
         * 初始化该控件时需要提供以下参数
         * 账号
         * 餐厅ID
         * 昵称
         * 头像
+        * 评分
         */
         private string _userName;
         private int _restaurantId;
         private string _nickName;
         private Image _image;
+        
 
         public string Comment
         {
@@ -74,6 +76,7 @@ namespace 餐厅管理系统.controls
             commentControl.Image = image;
             commentControl.NickName = nickName;
             commentControl.Comment = comment;
+            commentControl.Rate = rate;
 
             flowLayoutPanel1.Controls.Add(commentControl);
         }
@@ -116,9 +119,17 @@ namespace 餐厅管理系统.controls
                     };
                     // 调用 AddComment 方法将评论添加到数据库
                     ResInfo.AddCommentToDb(myReview);
+                    //bunifuTextBox1.Text = "";
+                    //LabelRate.Text = "";
                 }
             }
             AddComment(_nickName, _comment, _rate, _image);
+            
+        }
+        // 设置评分
+        private void LabelRate_TextChange(object sender, EventArgs e)
+        {
+            _rate = int.Parse(LabelRate.Text);
         }
     }
 }

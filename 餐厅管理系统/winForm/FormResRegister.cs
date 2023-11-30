@@ -74,7 +74,7 @@ namespace 餐厅管理系统
                         MessageBox.Show("申请已提交，请耐心等待");
                     }
                 }
-                else { MessageBox.Show("密码至少要包含数字和字母");a }
+                else { MessageBox.Show("密码至少要包含数字和字母");}
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace 餐厅管理系统
                         string uploadpicture;
                         uploadpicture = openFileDialog1.FileName; // 图片的物理路径
                         String[] empImageData = uploadpicture.Split('.'); // 获取文件类型
-                        empUpLoadPictureFormat = empImageData[1]; // 上传的图片的后缀名
+                        empUpLoadPictureFormat = empImageData[empImageData.Length-1]; // 上传的图片的后缀名
                         pictureBox1.Image = Image.FromFile(uploadpicture); // 将图片显示在 PictureBox 控件中
                     }
                     catch
