@@ -210,7 +210,7 @@ namespace 餐厅管理系统
                 if (a == 100)
                 {
                     // 设置菜品图片的名字:以餐厅名+菜品名+后缀名
-                    string dishImageName = res.Name + textBox2.Text + empUpLoadPictureFormat;
+                    string dishImageName = res.Name + textBox2.Text + "." + empUpLoadPictureFormat;
 
                     // 将上传的图片复制到指定目录
                     File.Copy(imagePath, filename + "\\image\\dishimage\\" + dishImageName);
@@ -307,7 +307,7 @@ namespace 餐厅管理系统
 
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

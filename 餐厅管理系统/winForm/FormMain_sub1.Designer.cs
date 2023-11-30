@@ -32,15 +32,12 @@
             // 
             // FormMain_sub1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 321);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormMain_sub1";
-            this.Padding = new System.Windows.Forms.Padding(15, 43, 15, 14);
             this.Text = "FormMain_sub1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_sub1_FormClosed);
-            this.Load += new System.EventHandler(this.FormMain_sub1_Load);
             this.ResumeLayout(false);
 
         }

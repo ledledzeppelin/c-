@@ -115,10 +115,5 @@ namespace 餐厅管理系统.winForm
             bunifuTextBox2.Text = null;
             pictureBox1.Image = ResInfo.GetImage("用户默认头像.png", 3);
         }
-
-        private void FormAddDish_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

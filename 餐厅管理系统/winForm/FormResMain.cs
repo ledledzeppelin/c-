@@ -13,6 +13,9 @@ using 餐厅管理系统.database;
 using 餐厅管理系统.util;
 using Microsoft.EntityFrameworkCore;
 using 餐厅管理系统.controls;
+using static System.Net.Mime.MediaTypeNames;
+using System.Net;
+using TheArtOfDev.HtmlRenderer.Adapters;
 
 namespace 餐厅管理系统.winForm
 {
@@ -123,10 +126,16 @@ namespace 餐厅管理系统.winForm
             FormAddDish formAddDish = new FormAddDish(res.RestaurantId,res.Name,this);
             formAddDish.Show();
         }
-
-        private void FormResMain_Load(object sender, EventArgs e)
-        {
-
+        // 修改头像、餐厅名、地址、密码
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {   /**工厂模式
+             * 选择修改用户信息的工厂
+             */
+            EditInfoFactory factory = new EditUserInfoFactory();
+            // 使用工厂类创建产品
+            IEditInfo editInfo = factory.CreateEditInfo();
+            editInfo.Edit(res.Account,
+                res.Name, ResInfo.GetImage(res.ResPicture, 0), res.Address);
         }
     }
 }

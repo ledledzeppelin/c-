@@ -9,13 +9,13 @@ using 餐厅管理系统.data;
 
 namespace 餐厅管理系统.database
 {
-    internal class RestaurantDb:DbContext
+    public class RestaurantDb:DbContext
     {
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 配置数据库连接，使用 MySQL 数据库提供程序和连接字符串
-            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=hf20030819;");
+            optionsBuilder.UseMySql("Server=localhost;Database=res;User Id=root;Password=448260lklk;");
         }
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<ResApply> ResApplys { get; set; }

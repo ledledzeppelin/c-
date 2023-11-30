@@ -36,23 +36,18 @@
             this.mainPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel1.Location = new System.Drawing.Point(0, 18);
-            this.mainPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.mainPanel1.MyProfileImage = null;
+            this.mainPanel1.Location = new System.Drawing.Point(0, 25);
             this.mainPanel1.Name = "mainPanel1";
-            this.mainPanel1.Size = new System.Drawing.Size(979, 782);
+            this.mainPanel1.Size = new System.Drawing.Size(1346, 1095);
             this.mainPanel1.TabIndex = 0;
-            this.mainPanel1.Load += new System.EventHandler(this.mainPanel1_Load_1);
             // 
             // FormMainMetro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 787);
+            this.ClientSize = new System.Drawing.Size(1360, 1150);
             this.Controls.Add(this.mainPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMainMetro";
-            this.Padding = new System.Windows.Forms.Padding(15, 43, 15, 14);
             this.ResumeLayout(false);
 
         }

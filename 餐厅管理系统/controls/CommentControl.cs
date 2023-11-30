@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 餐厅管理系统.util;
 
 namespace 餐厅管理系统
 {
@@ -20,6 +21,15 @@ namespace 餐厅管理系统
         private string _nickName;
         private string _comment;
         private Image _image;
+        private int _rate;
+        public int Rate
+        {
+            set 
+            { 
+                _rate = value; 
+                ResInfo.SetRatePicture(ControlRate, value); 
+            }
+        }
 
         public string NickName
         {

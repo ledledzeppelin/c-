@@ -402,6 +402,12 @@
     </Compile>
     <Compile Include="Migrations\UserDbMigrations\UserDbModelSnapshot.cs" />
     <Compile Include="util\Address.cs" />
+    <Compile Include="util\EditInfoFactory.cs" />
+    <Compile Include="util\EditResInfo.cs" />
+    <Compile Include="util\EditRestaurantFactory.cs" />
+    <Compile Include="util\EditUserInfo.cs" />
+    <Compile Include="util\EditUserInfoFactory.cs" />
+    <Compile Include="util\IEditInfo.cs" />
     <Compile Include="util\ILoginStrategy.cs" />
     <Compile Include="util\Location.cs" />
     <Compile Include="util\ResInfo.cs" />
@@ -423,11 +429,11 @@
     <Compile Include="winForm\FormEditDish.Designer.cs">
       <DependentUpon>FormEditDish.cs</DependentUpon>
     </Compile>
-    <Compile Include="winForm\FormEditUserInfo.cs">
+    <Compile Include="winForm\FormEditUserOrResInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="winForm\FormEditUserInfo.Designer.cs">
-      <DependentUpon>FormEditUserInfo.cs</DependentUpon>
+    <Compile Include="winForm\FormEditUserOrResInfo.Designer.cs">
+      <DependentUpon>FormEditUserOrResInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="winForm\FormMainMetro.cs">
       <SubType>Form</SubType>
@@ -528,8 +534,8 @@
     <EmbeddedResource Include="winForm\FormEditDish.resx">
       <DependentUpon>FormEditDish.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="winForm\FormEditUserInfo.resx">
-      <DependentUpon>FormEditUserInfo.cs</DependentUpon>
+    <EmbeddedResource Include="winForm\FormEditUserOrResInfo.resx">
+      <DependentUpon>FormEditUserOrResInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormMainMetro.resx">
       <DependentUpon>FormMainMetro.cs</DependentUpon>

@@ -87,7 +87,7 @@ namespace 餐厅管理系统
                         {
                             MessageBox.Show("注册申请尚未审核，请耐心等待");
                         }
-                        else if(user!=null)
+                        else if (user != null)
                         {
                             FormResMain myform = new FormResMain(user);
                             this.Hide();
@@ -109,7 +109,6 @@ namespace 餐厅管理系统
                 MessageBox.Show($"发生错误: {ex.Message}");
             }
         }
-
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -149,6 +148,7 @@ namespace 餐厅管理系统
             form4.ShowDialog();
             this.Dispose();
         }
+
     }
  
 }

@@ -209,10 +209,5 @@ namespace 餐厅管理系统.winForm
                 }
             }
         }
-
-        private void FormResDetailClient_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

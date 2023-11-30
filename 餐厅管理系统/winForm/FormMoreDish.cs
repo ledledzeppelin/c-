@@ -37,10 +37,5 @@ namespace 餐厅管理系统.winForm
                 flowLayoutPanel1.Controls.Add(dishDetail);
             }
         }
-
-        private void FormMoreDish_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
