@@ -25,6 +25,8 @@ namespace 餐厅管理系统.controls
         private string _nickName;
         private Image _myProfileImage;
         private string _address;
+
+       
         public FormMainMetro FormMainMetro
         {
             set { _formMainMetro = value; }

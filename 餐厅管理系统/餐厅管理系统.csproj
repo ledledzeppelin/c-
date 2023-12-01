@@ -429,11 +429,17 @@
     <Compile Include="winForm\FormEditDish.Designer.cs">
       <DependentUpon>FormEditDish.cs</DependentUpon>
     </Compile>
-    <Compile Include="winForm\FormEditUserOrResInfo.cs">
+    <Compile Include="winForm\FormEditResInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="winForm\FormEditUserOrResInfo.Designer.cs">
-      <DependentUpon>FormEditUserOrResInfo.cs</DependentUpon>
+    <Compile Include="winForm\FormEditResInfo.Designer.cs">
+      <DependentUpon>FormEditResInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="winForm\FormEditUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winForm\FormEditUserInfo.Designer.cs">
+      <DependentUpon>FormEditUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="winForm\FormMainMetro.cs">
       <SubType>Form</SubType>
@@ -534,8 +540,11 @@
     <EmbeddedResource Include="winForm\FormEditDish.resx">
       <DependentUpon>FormEditDish.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="winForm\FormEditUserOrResInfo.resx">
-      <DependentUpon>FormEditUserOrResInfo.cs</DependentUpon>
+    <EmbeddedResource Include="winForm\FormEditResInfo.resx">
+      <DependentUpon>FormEditResInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winForm\FormEditUserInfo.resx">
+      <DependentUpon>FormEditUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="winForm\FormMainMetro.resx">
       <DependentUpon>FormMainMetro.cs</DependentUpon>

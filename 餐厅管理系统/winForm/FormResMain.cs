@@ -13,7 +13,6 @@ using 餐厅管理系统.database;
 using 餐厅管理系统.util;
 using Microsoft.EntityFrameworkCore;
 using 餐厅管理系统.controls;
-using static System.Net.Mime.MediaTypeNames;
 using System.Net;
 using TheArtOfDev.HtmlRenderer.Adapters;
 
@@ -31,6 +30,22 @@ namespace 餐厅管理系统.winForm
             bunifuLabel4.Text = res.Address;
             LoadDish();
         }
+        //更新头像
+        public void ChangeImage(Image image)
+        {
+            pictureBox1.Image = image;
+        }
+        //更新名字
+        public void ChangeName(string name)
+        {
+            bunifuLabel3.Text = name;
+        }
+        //更新地址
+        public void ChangeAddress(string address)
+        {
+            bunifuLabel4.Text = address;    
+        }
+
         // 释放图片资源
         public void ClearPictureResources()
         {
@@ -131,11 +146,11 @@ namespace 餐厅管理系统.winForm
         {   /**工厂模式
              * 选择修改用户信息的工厂
              */
-            EditInfoFactory factory = new EditUserInfoFactory();
+            EditInfoFactory factory = new EditRestaurantFactory();
             // 使用工厂类创建产品
             IEditInfo editInfo = factory.CreateEditInfo();
             editInfo.Edit(res.Account,
-                res.Name, ResInfo.GetImage(res.ResPicture, 0), res.Address);
+                res.Name, ResInfo.GetImage(res.ResPicture, 0), res.Address,this);
         }
     }
 }

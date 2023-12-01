@@ -61,7 +61,7 @@ namespace 餐厅管理系统.controls
             EditInfoFactory factory = new EditUserInfoFactory();
             // 使用工厂类创建产品
             IEditInfo editInfo = factory.CreateEditInfo();
-            editInfo.Edit(_userName, _nickName, _image, _address);
+            editInfo.Edit(_userName, _nickName, _image, _address,this);
         }
     }
 }

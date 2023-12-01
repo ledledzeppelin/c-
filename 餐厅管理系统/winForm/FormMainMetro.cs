@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using 餐厅管理系统.controls;
 using 餐厅管理系统.database;
 using 餐厅管理系统.util;
 
@@ -41,9 +42,12 @@ namespace 餐厅管理系统.winForm
                 mainPanel1.Address = address;
             }
             mainPanel1.InitializeRes();
+            
         }
+
+        
         //刷新用户头像
-       public void RefreshUserProfile(Image image)
+        public void RefreshUserProfile(Image image)
         {
             mainPanel1.RefreshUserProfile(image);
         }
